@@ -4,3 +4,5 @@ dist/
 .env.local
 *.log
 .DS_Store
+public/images/doctors/*_original.*
+public/images/doctors/horita_white.png
