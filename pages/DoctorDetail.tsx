@@ -38,7 +38,7 @@ export const DoctorDetail: React.FC<DoctorDetailProps> = ({ lang }) => {
               <span className="text-brand-teal font-black uppercase tracking-[0.4em] text-[10px] mb-8 block">
                 {doctor.category} Specialist
               </span>
-              <h1 className="text-6xl md:text-8xl font-serif text-slate-900 mb-6 tracking-tight leading-none">{doctor.name}</h1>
+              <h1 className="font-serif text-slate-900 mb-6 tracking-tight leading-none" style={{ fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}>{doctor.name}</h1>
               <p className="text-slate-300 text-3xl font-serif italic mb-10 tracking-wide">{doctor.nameEn}</p>
               <h2 className="text-2xl font-bold text-brand-blue mb-12 tracking-tight">{doctor.title}</h2>
               

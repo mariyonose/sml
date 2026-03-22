@@ -32,7 +32,7 @@ export const ClinicDetail: React.FC<ClinicDetailProps> = ({ lang }) => {
         <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
            <div className="max-w-2xl bg-white/90 backdrop-blur-xl p-16 md:p-24 shadow-2xl">
               <span className="text-brand-blue font-black tracking-[0.6em] uppercase text-[10px] mb-8 block">Partner Institution</span>
-              <h1 className="text-5xl md:text-7xl font-serif text-slate-900 tracking-tighter mb-10">{clinic.name}</h1>
+              <h1 className="font-serif text-slate-900 tracking-tighter mb-10" style={{ fontSize: 'clamp(2rem, 5vw, 5rem)' }}>{clinic.name}</h1>
               <div className="flex flex-wrap gap-4">
                 {clinic.features.map(f => (
                   <span key={f} className="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">

@@ -413,7 +413,7 @@ export const Home: React.FC<HomeProps> = ({ lang }) => {
           <div className="text-center mb-10 md:mb-16">
             <div className="mb-8">
               <ScrollReveal variant="fadeUp" delay={0}>
-                <h3 className="text-3xl md:text-7xl lg:text-8xl font-serif text-slate-900 tracking-tight leading-none mb-4 font-extralight">
+                <h3 className="font-serif text-slate-900 tracking-tight leading-none mb-4 font-extralight" style={{ fontSize: 'clamp(2rem, 8vw, 6rem)' }}>
                   <span className="text-red-600">JAPAN</span> PREMIUM
                 </h3>
               </ScrollReveal>

@@ -26,7 +26,7 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/20 to-slate-900/80"></div>
             
             <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-10 lg:px-12">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif text-white mb-4 tracking-tighter opacity-90">
+              <h1 className="font-serif text-white mb-4 tracking-tighter opacity-90" style={{ fontSize: 'clamp(2.5rem, 5vw, 6rem)' }}>
                 AGENTS
               </h1>
               <div className="h-px w-24 bg-brand-blue mb-8"></div>
@@ -44,7 +44,7 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
         </aside>
 
         {/* Right Side - Content */}
-        <main className="w-full md:w-[60%] lg:w-[65%] 2xl:w-[70%] bg-white">
+        <main className="w-full md:w-[60%] lg:w-[65%] 2xl:w-[70%] bg-white overflow-x-hidden">
           {/* Hero Section */}
           <section className="px-8 md:px-16 lg:px-24 xl:px-28 2xl:px-32 py-24 md:py-32">
             <div className="max-w-4xl xl:max-w-5xl">
@@ -52,7 +52,7 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
                 <p className="text-brand-blue font-black tracking-[0.4em] uppercase text-xs mb-6">For Agents & Partners</p>
               </ScrollReveal>
               <ScrollReveal variant="maskReveal" delay={0.1}>
-                <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif text-slate-900 mb-12 tracking-tight leading-tight break-keep">
+                <h2 className="font-serif text-slate-900 mb-12 tracking-tight leading-tight" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.8rem)' }}>
                   エージェント様への<br />
                   インフラ提供とパートナーシップ
                 </h2>
@@ -74,7 +74,8 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
                     whileInView={{ x: 0 }}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     viewport={{ once: true }}
-                    className="text-6xl md:text-9xl font-serif text-slate-900 tracking-tighter uppercase opacity-80 leading-none"
+                    className="font-serif text-slate-900 tracking-tighter uppercase opacity-80 leading-none"
+                    style={{ fontSize: 'clamp(3.5rem, 9vw, 7rem)' }}
                   >
                     Issue
                   </motion.h2>
@@ -149,7 +150,8 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
                   whileInView={{ y: 0 }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                   viewport={{ once: true }}
-                  className="text-6xl md:text-9xl font-serif text-slate-900 tracking-tighter uppercase opacity-80 leading-none"
+                  className="font-serif text-slate-900 tracking-tighter uppercase opacity-80 leading-none"
+                  style={{ fontSize: 'clamp(3.5rem, 9vw, 7rem)' }}
                 >
                   Solution
                 </motion.h2>
