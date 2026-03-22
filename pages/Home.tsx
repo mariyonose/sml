@@ -50,11 +50,11 @@ export const Home: React.FC<HomeProps> = ({ lang }) => {
   // 全写真を横長（ratio 1.1〜1.4）にトリミング済み → h-full w-auto で統一
   // horita のみ contain で全身表示（横長写真なので下部に余白が出ないよう bottom center）
   const doctorImgStyles: Record<string, React.CSSProperties> = {
-    yamamoto: { height: '100%', top: '0', width: 'auto', maxWidth: 'min(58%, 860px)', right: 'max(0px, calc((100vw - 1536px) / 2))', objectFit: 'cover', objectPosition: 'top center', transformOrigin: 'top right' },
-    horita:   { height: '100%', top: '0', width: 'auto', maxWidth: 'min(58%, 860px)', right: 'max(0px, calc((100vw - 1536px) / 2))', objectFit: 'contain', objectPosition: 'bottom center', transformOrigin: 'top right' },
-    harima:   { height: '100%', top: '0', width: 'auto', maxWidth: 'min(58%, 860px)', right: 'max(0px, calc((100vw - 1536px) / 2))', objectFit: 'cover', objectPosition: 'top center', transformOrigin: 'top right' },
-    shida:    { height: '100%', top: '0', width: 'auto', maxWidth: 'min(58%, 860px)', right: 'max(0px, calc((100vw - 1536px) / 2))', objectFit: 'cover', objectPosition: 'top center', transformOrigin: 'top right' },
-    ohashi:   { height: '100%', top: '0', width: 'auto', maxWidth: 'min(58%, 860px)', right: 'max(0px, calc((100vw - 1536px) / 2))', objectFit: 'cover', objectPosition: 'top center', transformOrigin: 'top right' },
+    yamamoto: { height: '100%', top: '0', width: 'auto', maxWidth: 'min(58%, 860px)', right: 'max(0px, calc((100vw - 1536px) / 2))', objectFit: 'contain', objectPosition: 'bottom center', transformOrigin: 'bottom right' },
+    horita:   { height: '100%', top: '0', width: 'auto', maxWidth: 'min(58%, 860px)', right: 'max(0px, calc((100vw - 1536px) / 2))', objectFit: 'contain', objectPosition: 'bottom center', transformOrigin: 'bottom right' },
+    harima:   { height: '100%', top: '0', width: 'auto', maxWidth: 'min(58%, 860px)', right: 'max(0px, calc((100vw - 1536px) / 2))', objectFit: 'contain', objectPosition: 'bottom center', transformOrigin: 'bottom right' },
+    shida:    { height: '100%', top: '0', width: 'auto', maxWidth: 'min(58%, 860px)', right: 'max(0px, calc((100vw - 1536px) / 2))', objectFit: 'contain', objectPosition: 'bottom center', transformOrigin: 'bottom right' },
+    ohashi:   { height: '100%', top: '0', width: 'auto', maxWidth: 'min(58%, 860px)', right: 'max(0px, calc((100vw - 1536px) / 2))', objectFit: 'contain', objectPosition: 'bottom center', transformOrigin: 'bottom right' },
   };
 
   return (
