@@ -57,13 +57,13 @@ export const Home: React.FC<HomeProps> = ({ lang }) => {
     shida:    { height: '100%', top: '0', width: 'auto', maxWidth: 'min(58%, 860px)', right: 'max(0px, calc((100vw - 1536px) / 2))', objectFit: 'contain', objectPosition: 'bottom center', transformOrigin: 'bottom right' },
     ohashi:   { height: '100%', top: '0', width: 'auto', maxWidth: 'min(58%, 860px)', right: 'max(0px, calc((100vw - 1536px) / 2))', objectFit: 'contain', objectPosition: 'bottom center', transformOrigin: 'bottom right' },
   };
-  // スマホ用スタイル（md未満）：医師を右寄せ・上から表示
+  // スマホ用スタイル（md未満）：医師を画面中央右側に配置。上郣にキャッチコピーエリアを確保
   const doctorImgStylesSP: Record<string, React.CSSProperties> = {
-    yamamoto: { height: '85%', bottom: '0', top: 'auto', width: 'auto', maxWidth: '75%', right: '0', objectFit: 'contain', objectPosition: 'bottom right', transformOrigin: 'bottom right' },
-    horita:   { height: '85%', bottom: '0', top: 'auto', width: 'auto', maxWidth: '75%', right: '0', objectFit: 'contain', objectPosition: 'bottom right', transformOrigin: 'bottom right' },
-    harima:   { height: '85%', bottom: '0', top: 'auto', width: 'auto', maxWidth: '75%', right: '0', objectFit: 'contain', objectPosition: 'bottom right', transformOrigin: 'bottom right' },
-    shida:    { height: '85%', bottom: '0', top: 'auto', width: 'auto', maxWidth: '75%', right: '0', objectFit: 'contain', objectPosition: 'bottom right', transformOrigin: 'bottom right' },
-    ohashi:   { height: '85%', bottom: '0', top: 'auto', width: 'auto', maxWidth: '75%', right: '0', objectFit: 'contain', objectPosition: 'bottom right', transformOrigin: 'bottom right' },
+    yamamoto: { position: 'absolute', top: '10%', bottom: '30%', right: '0', width: 'auto', maxWidth: '70%', objectFit: 'contain', objectPosition: 'center right', transformOrigin: 'center right' },
+    horita:   { position: 'absolute', top: '10%', bottom: '30%', right: '0', width: 'auto', maxWidth: '70%', objectFit: 'contain', objectPosition: 'center right', transformOrigin: 'center right' },
+    harima:   { position: 'absolute', top: '10%', bottom: '30%', right: '0', width: 'auto', maxWidth: '70%', objectFit: 'contain', objectPosition: 'center right', transformOrigin: 'center right' },
+    shida:    { position: 'absolute', top: '10%', bottom: '30%', right: '0', width: 'auto', maxWidth: '70%', objectFit: 'contain', objectPosition: 'center right', transformOrigin: 'center right' },
+    ohashi:   { position: 'absolute', top: '10%', bottom: '30%', right: '0', width: 'auto', maxWidth: '70%', objectFit: 'contain', objectPosition: 'center right', transformOrigin: 'center right' },
   };
 
   return (
