@@ -318,7 +318,7 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
 
             <div className="relative z-10 max-w-3xl">
               <p className="text-brand-blue font-black tracking-[0.4em] uppercase text-xs mb-6">Contact Us</p>
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif mb-12 tracking-tight leading-[1.3]">
+              <h2 className="font-serif mb-12 tracking-tight leading-[1.3] break-keep" style={{ fontSize: 'clamp(1.5rem, 3.4vw, 3.4rem)' }}>
                 <span className="block mb-4">日本の医療で、世界を癒す。</span>
                 <span className="text-brand-blue block">共に広めるパートナーを募集。</span>
               </h2>
