@@ -72,8 +72,8 @@ export const Home: React.FC<HomeProps> = ({ lang }) => {
             position: 'sticky',
             top: 0,
             zIndex: 0,
-            height: '70vh',
-            minHeight: '480px',
+            height: '85vh',
+            minHeight: '560px',
           }}
           className="relative w-full flex items-center overflow-hidden bg-white"
         >
@@ -210,7 +210,7 @@ export const Home: React.FC<HomeProps> = ({ lang }) => {
 
           {/* ===== PC用ヒーローレイアウト（md以上）: 元の左カラム構成 ===== */}
           <div className="hidden md:block relative z-10 w-full h-full">
-            <div className="max-w-screen-2xl mx-auto px-10 xl:px-16 2xl:px-24 h-full flex items-center">
+            <div className="max-w-screen-2xl mx-auto px-10 xl:px-16 2xl:px-24 h-full flex items-center pb-16">
               {/* 左カラム：ラベル・コピー・サブタイトル・ボタン */}
               <div className="flex flex-col gap-8 w-full max-w-[55%] xl:max-w-[50%] 2xl:max-w-[46%]">
 
@@ -228,7 +228,7 @@ export const Home: React.FC<HomeProps> = ({ lang }) => {
                     style={{ fontSize: 'clamp(2.5rem, 4.5vw, 4.8rem)' }}
                   >
                     {t('hero_copy').split('\n').map((line, i) => (
-                      <motion.span key={`pc-copy-${i}`} className="block"
+                      <motion.span key={`pc-copy-${i}`} className="block whitespace-nowrap"
                         initial={hasAnimated ? false : { opacity: 0, y: 18 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.6, delay: 0.3 + i * 0.25, ease: [0.25, 0.1, 0.25, 1] }}
@@ -238,8 +238,8 @@ export const Home: React.FC<HomeProps> = ({ lang }) => {
                 </div>
 
                 {/* サブタイトル */}
-                <motion.div key="pc-sub" className="overflow-hidden" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}>
-                  <p className={`text-xl font-light leading-relaxed ${slides[currentSlide].isBrand ? 'text-blue-100/90' : 'text-slate-600'}`}>
+                <motion.div key="pc-sub" className="overflow-visible" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}>
+                  <p className={`text-base font-light leading-relaxed whitespace-nowrap ${slides[currentSlide].isBrand ? 'text-blue-100/90' : 'text-slate-600'}`}>
                     {t('hero_subtitle')}
                   </p>
                 </motion.div>
@@ -309,7 +309,7 @@ export const Home: React.FC<HomeProps> = ({ lang }) => {
                 <h2 className="text-xs font-black text-brand-blue tracking-[0.5em] uppercase mb-4">{t('nav_about')}</h2>
               </ScrollReveal>
               <ScrollReveal variant="maskReveal" delay={0.12}>
-                <p className="text-xl md:text-5xl lg:text-6xl font-serif text-slate-900 max-w-4xl mx-auto leading-[1.4] md:leading-[1.3] break-words md:break-keep">
+                <p className="text-xl md:text-3xl lg:text-4xl font-serif text-slate-900 max-w-4xl mx-auto leading-[1.4] md:leading-[1.3] break-words md:break-keep">
                   SSF Medical Linkは、最高峰の医療技術と<br className="hidden md:block" />
                   世界中のニーズを繋ぐ「信頼の架け橋」です。
                 </p>
