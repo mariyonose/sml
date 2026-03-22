@@ -15,7 +15,7 @@ export const ForClinics: React.FC<ForClinicsProps> = ({ lang }) => {
       <div className="flex flex-col md:flex-row min-h-screen">
         {/* Left Side - Visual & Title */}
         <aside className="w-full md:w-[40%] lg:w-[35%] md:h-screen md:sticky md:top-0 overflow-hidden bg-slate-900">
-          <div className="relative h-[60vh] md:h-full w-full">
+          <div className="relative h-[45vw] min-h-[240px] max-h-[400px] md:h-full w-full">
             <img 
               src="https://lh3.googleusercontent.com/d/1Lv8FSmO7WyBkLHpl4iOYH-aqyulGgLPw" 
               alt="Medical Facility" 
@@ -24,16 +24,16 @@ export const ForClinics: React.FC<ForClinicsProps> = ({ lang }) => {
             />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/20 to-slate-900/80"></div>
             
-            <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-10 lg:px-12">
-              <h1 className="font-serif text-white mb-4 tracking-tighter opacity-90" style={{ fontSize: 'clamp(2.5rem, 5vw, 6rem)' }}>
+            <div className="absolute inset-0 flex flex-col justify-end md:justify-center px-5 md:px-10 lg:px-12 pb-6 md:pb-0">
+              <h1 className="font-serif text-white mb-2 md:mb-4 tracking-tighter opacity-90" style={{ fontSize: 'clamp(2rem, 5vw, 6rem)' }}>
                 CLINICS
               </h1>
-              <div className="h-px w-24 bg-brand-blue mb-8"></div>
-              <p className="text-2xl md:text-3xl font-bold text-white leading-tight tracking-tight">
+              <div className="h-px w-16 md:w-24 bg-brand-blue mb-3 md:mb-8"></div>
+              <p className="text-lg md:text-2xl lg:text-3xl font-bold text-white leading-tight tracking-tight">
                 クリニック向け
               </p>
               
-              <div className="absolute bottom-12 left-12 md:left-16 flex items-center gap-2 text-white/50 text-xs tracking-widest uppercase">
+              <div className="hidden md:flex absolute bottom-12 left-12 md:left-16 items-center gap-2 text-white/50 text-xs tracking-widest uppercase">
                 <Link to="/" className="hover:text-brand-blue transition-colors">Home</Link>
                 <span>/</span>
                 <span className="text-white">For Clinics</span>
@@ -45,37 +45,37 @@ export const ForClinics: React.FC<ForClinicsProps> = ({ lang }) => {
         {/* Right Side - Content */}
         <main className="w-full md:w-[60%] lg:w-[65%] bg-white min-w-0">
           {/* Hero Section */}
-          <section className="px-8 md:px-16 lg:px-24 py-24 md:py-32">
+          <section className="px-5 md:px-10 lg:px-16 py-12 md:py-24 lg:py-32">
             <div className="max-w-4xl">
-              <p className="text-brand-blue font-black tracking-[0.4em] uppercase text-xs mb-6">For Medical Institutions</p>
-              <h2 className="font-serif text-slate-900 mb-12 tracking-tight leading-tight" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.8rem)' }}>
+              <p className="text-brand-blue font-black tracking-[0.3em] md:tracking-[0.4em] uppercase text-[10px] md:text-xs mb-4 md:mb-6">For Medical Institutions</p>
+              <h2 className="font-serif text-slate-900 mb-8 md:mb-12 tracking-tight leading-tight" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.8rem)' }}>
                 クリニック様への<br />インバウンド・ソリューション
               </h2>
-              <div className="space-y-6 max-w-3xl">
-                <p className="text-xl md:text-2xl text-slate-900 font-bold leading-relaxed break-keep">
+              <div className="space-y-4 md:space-y-6 max-w-3xl">
+                <p className="text-base md:text-xl lg:text-2xl text-slate-900 font-bold leading-relaxed">
                   医療インバウンドの様々な課題を解決し成長させる。<br />それが私たちのミッションです。
                 </p>
-                <p className="text-lg text-slate-600 leading-relaxed font-light break-keep">
+                <p className="text-sm md:text-lg text-slate-600 leading-relaxed font-light">
                   日本の自由診療業界を20年以上リードしてきた実績を背景に、貴院の価値をグローバルブランドへと昇華させ、海外の患者様へダイレクトに届けます。
                 </p>
               </div>
 
               {/* Service Overview */}
-              <div className="mt-24">
-                <div className="flex items-center gap-8 mb-12 overflow-hidden">
+              <div className="mt-12 md:mt-24">
+                <div className="flex items-center gap-4 md:gap-8 mb-8 md:mb-12 overflow-hidden">
                   <motion.h2 
                     initial={{ x: "100%" }}
                     whileInView={{ x: 0 }}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     viewport={{ once: true }}
                     className="font-serif text-slate-900 tracking-tighter uppercase opacity-80 leading-none"
-                    style={{ fontSize: 'clamp(3.5rem, 9vw, 7rem)' }}
+                    style={{ fontSize: 'clamp(2.5rem, 9vw, 7rem)' }}
                   >
                     Service
                   </motion.h2>
                   <div className="h-[1.5px] flex-grow bg-slate-900/10"></div>
                 </div>
-                <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12 tracking-tight">インバウンド事業を成功に導く３つのサービス</h3>
+                <h3 className="text-xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-8 md:mb-12 tracking-tight">インバウンド事業を成功に導く３つのサービス</h3>
                 
                 <div className="grid grid-cols-1 gap-6">
                   {[
@@ -86,12 +86,12 @@ export const ForClinics: React.FC<ForClinicsProps> = ({ lang }) => {
                     <a 
                       key={i} 
                       href={`#${item.id}`}
-                      className="flex items-center gap-8 p-8 bg-slate-50 rounded-sm border border-slate-100 hover:bg-slate-900 transition-all duration-500 group cursor-pointer"
+                      className="flex items-center gap-5 md:gap-8 p-5 md:p-8 bg-slate-50 rounded-sm border border-slate-100 hover:bg-slate-900 transition-all duration-500 group cursor-pointer"
                     >
-                      <span className="text-4xl font-serif text-slate-200 group-hover:text-brand-blue transition-colors">0{i+1}</span>
+                      <span className="text-3xl md:text-4xl font-serif text-slate-200 group-hover:text-brand-blue transition-colors shrink-0">0{i+1}</span>
                       <div>
-                        <h4 className="text-xl font-bold text-slate-900 group-hover:text-white tracking-tight transition-colors">{item.title}</h4>
-                        <p className="text-xs font-serif italic text-slate-400 group-hover:text-slate-500 tracking-widest uppercase transition-colors">{item.subtitle}</p>
+                        <h4 className="text-base md:text-xl font-bold text-slate-900 group-hover:text-white tracking-tight transition-colors">{item.title}</h4>
+                        <p className="text-[10px] md:text-xs font-serif italic text-slate-400 group-hover:text-slate-500 tracking-widest uppercase transition-colors">{item.subtitle}</p>
                       </div>
                     </a>
                   ))}
@@ -101,7 +101,7 @@ export const ForClinics: React.FC<ForClinicsProps> = ({ lang }) => {
           </section>
 
           {/* Service 01: Global Readiness */}
-          <section id="service-01" className="px-8 md:px-16 lg:px-24 py-32 bg-slate-50">
+          <section id="service-01" className="px-5 md:px-10 lg:px-16 py-16 md:py-32 bg-slate-50">
             <div className="max-w-4xl mx-auto">
               <div className="flex items-center gap-8 mb-16 overflow-hidden">
                 <motion.h2 
@@ -117,10 +117,10 @@ export const ForClinics: React.FC<ForClinicsProps> = ({ lang }) => {
                 <div className="h-[1.5px] flex-grow bg-slate-900/10"></div>
               </div>
               
-              <div className="mb-20">
-                <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 tracking-tight break-keep">受け入れコンサルティング</h3>
-                <p className="text-sm font-serif italic text-brand-blue tracking-widest uppercase mb-6">Global Readiness</p>
-                <p className="text-xl text-slate-600 font-light break-keep">外国人患者受け入れに必要な「基盤」「発信」「窓口」を整備します。</p>
+              <div className="mb-10 md:mb-20">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 md:mb-6 tracking-tight">受け入れコンサルティング</h3>
+                <p className="text-xs md:text-sm font-serif italic text-brand-blue tracking-widest uppercase mb-4 md:mb-6">Global Readiness</p>
+                <p className="text-base md:text-xl text-slate-600 font-light">外国人患者受け入れに必要な「基盤」「発信」「窓口」を整備します。</p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -167,7 +167,7 @@ export const ForClinics: React.FC<ForClinicsProps> = ({ lang }) => {
           </section>
 
           {/* Service 02: Direct Matching */}
-          <section id="service-02" className="px-8 md:px-16 lg:px-24 py-32 bg-white">
+          <section id="service-02" className="px-5 md:px-10 lg:px-16 py-16 md:py-32 bg-white">
             <div className="max-w-4xl mx-auto">
               <div className="flex items-center gap-8 mb-16 overflow-hidden">
                 <motion.h2 
@@ -183,26 +183,26 @@ export const ForClinics: React.FC<ForClinicsProps> = ({ lang }) => {
                 <div className="h-[1.5px] flex-grow bg-slate-900/10"></div>
               </div>
               
-              <div className="mb-20">
-                <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 tracking-tight break-keep">インバウンド患者マッチング</h3>
-                <p className="text-sm font-serif italic text-brand-blue tracking-widest uppercase mb-6">Direct Matching</p>
-                <p className="text-xl text-slate-600 font-light leading-relaxed break-keep">
+              <div className="mb-10 md:mb-20">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 md:mb-6 tracking-tight">インバウンド患者マッチング</h3>
+                <p className="text-xs md:text-sm font-serif italic text-brand-blue tracking-widest uppercase mb-4 md:mb-6">Direct Matching</p>
+                <p className="text-base md:text-xl text-slate-600 font-light leading-relaxed">
                   独自のマッチングプラットフォームから、確実な送客を。<br />
                   SMLの正規ネットワークを通じ、日本の高い医療技術を求める患者様と貴院をダイレクトにマッチング。
                 </p>
               </div>
 
               {/* Doctor Guide Integration */}
-              <div className="relative bg-white rounded-sm p-10 md:p-16 border border-slate-200 mb-12 overflow-clip group">
+              <div className="relative bg-white rounded-sm p-5 md:p-10 lg:p-16 border border-slate-200 mb-8 md:mb-12 overflow-clip group">
                 {/* Rising Sun Background Element - Significant presence with vermilion */}
                 <div className="absolute -top-48 -right-48 w-[700px] h-[700px] bg-[#e60012]/15 rounded-full z-0 pointer-events-none"></div>
 
                 <div className="relative z-10">
-                  <div className="mb-12">
-                    <h4 className="text-4xl md:text-7xl font-serif text-slate-900 tracking-tight leading-none mb-2 font-extralight">
+                  <div className="mb-8 md:mb-12">
+                    <h4 className="font-serif text-slate-900 tracking-tight leading-none mb-2 font-extralight" style={{ fontSize: 'clamp(2rem, 8vw, 7rem)' }}>
                       <span className="text-red-600">JAPAN</span> PREMIUM
                     </h4>
-                    <p className="text-base font-sans text-brand-blue tracking-[0.8em] uppercase font-bold ml-1 mb-12">
+                    <p className="text-sm md:text-base font-sans text-brand-blue tracking-[0.5em] md:tracking-[0.8em] uppercase font-bold ml-1 mb-8 md:mb-12">
                       DOCTOR GUIDE
                     </p>
                     <Link 
@@ -241,7 +241,7 @@ export const ForClinics: React.FC<ForClinicsProps> = ({ lang }) => {
 
                 {/* MASTER CLASS Integration */}
                 <div className="relative z-10 mt-8 pt-8 border-t border-slate-100">
-                  <div className="bg-black p-12 md:p-20 rounded-sm text-center text-white shadow-2xl relative overflow-hidden">
+                  <div className="bg-black p-8 md:p-12 lg:p-20 rounded-sm text-center text-white shadow-2xl relative overflow-hidden">
                     {/* Background Image for Master Class */}
                     <div className="absolute inset-0 z-0 opacity-40">
                       <img 
@@ -254,19 +254,19 @@ export const ForClinics: React.FC<ForClinicsProps> = ({ lang }) => {
                     </div>
 
                     <div className="relative z-10">
-                      <p className="text-[#b4975a] font-bold tracking-[0.2em] text-xl mb-12">美容外科部門の最高峰の選抜ブランドコミュニティ</p>
-                      <div className="flex justify-center mb-12">
+                      <p className="text-[#b4975a] font-bold tracking-[0.2em] text-base md:text-xl mb-8 md:mb-12">美容外科部門の最高峰の選抜ブランドコミュニティ</p>
+                      <div className="flex justify-center mb-8 md:mb-12">
                         <img 
                           src="https://lh3.googleusercontent.com/d/1I5BtkZOB-sZibOI8X_JcyO99IyxrLg1J" 
                           alt="Master Class Logo" 
-                          className="h-28 w-auto"
+                          className="h-20 md:h-28 w-auto"
                           referrerPolicy="no-referrer"
                         />
                       </div>
-                      <p className="text-lg text-slate-300 leading-relaxed mb-10 font-light max-w-2xl mx-auto">
+                      <p className="text-sm md:text-lg text-slate-300 leading-relaxed mb-6 md:mb-10 font-light max-w-2xl mx-auto">
                         トップ１％の医師のみが所属する権威あるコミュニティから美容外科医を推薦します。
                       </p>
-                      <p className="text-sm text-[#b4975a] font-bold tracking-widest uppercase border border-[#b4975a]/30 inline-block px-6 py-2">MASTER CLASSの認定医師へなるための支援も可能です。</p>
+                      <p className="text-xs md:text-sm text-[#b4975a] font-bold tracking-widest uppercase border border-[#b4975a]/30 inline-block px-4 md:px-6 py-2">MASTER CLASSの認定医師へなるための支援も可能です。</p>
                     </div>
                   </div>
                 </div>
@@ -275,7 +275,7 @@ export const ForClinics: React.FC<ForClinicsProps> = ({ lang }) => {
           </section>
 
           {/* Service 03: Global Branding */}
-          <section id="service-03" className="relative px-8 md:px-16 lg:px-24 py-32 bg-slate-900 overflow-hidden">
+          <section id="service-03" className="relative px-5 md:px-10 lg:px-16 py-16 md:py-32 bg-slate-900 overflow-hidden">
             {/* Background Image for Global Branding */}
             <div className="absolute inset-0 z-0 opacity-30">
               <img 
@@ -302,17 +302,17 @@ className="font-serif text-white tracking-tighter uppercase opacity-80 leading-n
                 <div className="h-[1.5px] flex-grow bg-white/10"></div>
               </div>
               
-              <div className="mb-20">
-                <div className="flex items-center gap-4 mb-8">
-                  <span className="text-[#b4975a] font-black tracking-[0.5em] uppercase text-sm border-2 border-[#b4975a] px-6 py-2 rounded-sm bg-[#b4975a]/10">
+              <div className="mb-10 md:mb-20">
+                <div className="flex items-center gap-4 mb-6 md:mb-8">
+                  <span className="text-[#b4975a] font-black tracking-[0.3em] md:tracking-[0.5em] uppercase text-xs md:text-sm border-2 border-[#b4975a] px-4 md:px-6 py-2 rounded-sm bg-[#b4975a]/10">
                     MASTER CLASS ONLY
                   </span>
                 </div>
-                <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight break-keep">グローバルブランディング</h3>
-                <p className="text-sm font-serif italic text-brand-blue tracking-widest uppercase mb-10">Global Branding</p>
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 md:mb-6 tracking-tight">グローバルブランディング</h3>
+                <p className="text-xs md:text-sm font-serif italic text-brand-blue tracking-widest uppercase mb-6 md:mb-10">Global Branding</p>
                 
-                <h4 className="text-2xl font-serif text-white mb-6 tracking-tight break-keep">「日本の名医」から「世界の権威」へ。</h4>
-                <p className="text-xl text-slate-300 font-light leading-relaxed max-w-2xl break-keep">
+                <h4 className="text-xl md:text-2xl font-serif text-white mb-4 md:mb-6 tracking-tight">「日本の名医」から「世界の権威」へ。</h4>
+                <p className="text-base md:text-xl text-slate-300 font-light leading-relaxed max-w-2xl">
                   先生のブランドを世界へ発信するための特別プログラム。能動的なプロモーションにより、指名での来日患者を獲得し、グローバルな権威性を確立します。
                 </p>
               </div>
@@ -351,7 +351,7 @@ className="font-serif text-white tracking-tighter uppercase opacity-80 leading-n
           </section>
 
           {/* Flow Section */}
-          <section className="px-8 md:px-16 lg:px-24 py-32 bg-white">
+          <section className="px-5 md:px-10 lg:px-16 py-16 md:py-32 bg-white">
             <div className="max-w-4xl mx-auto">
               <div className="flex items-center gap-8 mb-16 overflow-hidden">
                 <motion.h2 
@@ -367,8 +367,8 @@ className="font-serif text-white tracking-tighter uppercase opacity-80 leading-n
                 <div className="h-[1.5px] flex-grow bg-slate-900/10"></div>
               </div>
               
-              <div className="mb-20">
-                <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2 tracking-tight">導入までの流れ</h3>
+              <div className="mb-10 md:mb-20">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-2 tracking-tight">導入までの流れ</h3>
               </div>
 
               <div className="relative">
@@ -410,35 +410,35 @@ className="font-serif text-white tracking-tighter uppercase opacity-80 leading-n
           </section>
 
           {/* CTA Section */}
-          <section className="px-8 md:px-16 lg:px-24 py-32 bg-slate-50 border-t border-slate-200">
+          <section className="px-5 md:px-10 lg:px-16 py-16 md:py-32 bg-slate-50 border-t border-slate-200">
             <div className="max-w-3xl text-center md:text-left">
-              <h2 className="text-3xl font-bold text-slate-900 mb-8">インバウンド支援サービスに関するお問い合わせ</h2>
-              <p className="text-lg text-slate-600 mb-12">
+              <h2 className="text-xl md:text-3xl font-bold text-slate-900 mb-5 md:mb-8">インバウンド支援サービスに関するお問い合わせ</h2>
+              <p className="text-sm md:text-lg text-slate-600 mb-8 md:mb-12">
                 貴院のインバウンド受け入れ体制の構築から、グローバルなブランディングまで、SMLがトータルでサポートいたします。
               </p>
-              <Link to="/contact" className="inline-flex items-center justify-center px-12 py-5 bg-brand-blue text-white rounded-sm font-bold text-lg hover:bg-slate-900 transition-all shadow-xl">
-                お問い合わせはこちら <ArrowRight className="ml-2 w-5 h-5" />
+              <Link to="/contact" className="inline-flex items-center justify-center px-8 md:px-12 py-4 md:py-5 bg-brand-blue text-white rounded-sm font-bold text-sm md:text-lg hover:bg-slate-900 transition-all shadow-xl">
+                お問い合わせはこちら <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
               </Link>
             </div>
           </section>
 
           {/* Page Navigation */}
-          <section className="px-8 md:px-16 lg:px-24 py-32 border-t border-slate-100">
+          <section className="px-5 md:px-10 lg:px-16 py-16 md:py-32 border-t border-slate-100">
             <div className="max-w-3xl">
-              <div className="grid grid-cols-1 gap-8">
-                <Link to="/for-agents" className="group p-12 bg-slate-50 rounded-sm border border-slate-100 hover:border-brand-teal transition-all">
-                  <p className="text-brand-teal font-black tracking-[0.3em] uppercase text-[10px] mb-4">Next Portal</p>
-                  <h4 className="text-3xl font-serif text-slate-900 mb-6 group-hover:text-brand-teal transition-colors">For Agents</h4>
-                  <p className="text-slate-500 mb-8">エージェント企業向けのご案内はこちら</p>
-                  <div className="flex items-center text-brand-teal font-bold text-sm uppercase tracking-widest">
+              <div className="grid grid-cols-1 gap-5 md:gap-8">
+                <Link to="/for-agents" className="group p-6 md:p-12 bg-slate-50 rounded-2xl md:rounded-sm border border-slate-100 hover:border-brand-teal transition-all">
+                  <p className="text-brand-teal font-black tracking-[0.3em] uppercase text-[10px] mb-3 md:mb-4">Next Portal</p>
+                  <h4 className="text-2xl md:text-3xl font-serif text-slate-900 mb-3 md:mb-6 group-hover:text-brand-teal transition-colors">For Agents</h4>
+                  <p className="text-slate-500 mb-5 md:mb-8 text-sm md:text-base">エージェント企業向けのご案内はこちら</p>
+                  <div className="flex items-center text-brand-teal font-bold text-xs md:text-sm uppercase tracking-widest">
                     Learn More <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-2" />
                   </div>
                 </Link>
-                <Link to="/about" className="group p-12 bg-slate-50 rounded-sm border border-slate-100 hover:border-brand-blue transition-all">
-                  <p className="text-brand-blue font-black tracking-[0.3em] uppercase text-[10px] mb-4">About SML</p>
-                  <h4 className="text-3xl font-serif text-slate-900 mb-6 group-hover:text-brand-blue transition-colors">SMLとは</h4>
-                  <p className="text-slate-500 mb-8">私たちのビジョンと選定基準について</p>
-                  <div className="flex items-center text-brand-blue font-bold text-sm uppercase tracking-widest">
+                <Link to="/about" className="group p-6 md:p-12 bg-slate-50 rounded-2xl md:rounded-sm border border-slate-100 hover:border-brand-blue transition-all">
+                  <p className="text-brand-blue font-black tracking-[0.3em] uppercase text-[10px] mb-3 md:mb-4">About SML</p>
+                  <h4 className="text-2xl md:text-3xl font-serif text-slate-900 mb-3 md:mb-6 group-hover:text-brand-blue transition-colors">SMLとは</h4>
+                  <p className="text-slate-500 mb-5 md:mb-8 text-sm md:text-base">私たちのビジョンと選定基準について</p>
+                  <div className="flex items-center text-brand-blue font-bold text-xs md:text-sm uppercase tracking-widest">
                     Learn More <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-2" />
                   </div>
                 </Link>

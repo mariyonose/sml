@@ -16,7 +16,7 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
       <div className="flex flex-col md:flex-row min-h-screen">
         {/* Left Side - Visual & Title */}
         <aside className="w-full md:w-[40%] lg:w-[35%] 2xl:w-[30%] md:h-screen md:sticky md:top-0 overflow-hidden bg-slate-900">
-          <div className="relative h-[60vh] md:h-full w-full">
+          <div className="relative h-[45vw] min-h-[240px] max-h-[400px] md:h-full w-full">
             <img 
               src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1200" 
               alt="Business Partnership" 
@@ -25,16 +25,16 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
             />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/20 to-slate-900/80"></div>
             
-            <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-10 lg:px-12">
-              <h1 className="font-serif text-white mb-4 tracking-tighter opacity-90" style={{ fontSize: 'clamp(2.5rem, 5vw, 6rem)' }}>
+            <div className="absolute inset-0 flex flex-col justify-end md:justify-center px-5 md:px-10 lg:px-12 pb-6 md:pb-0">
+              <h1 className="font-serif text-white mb-2 md:mb-4 tracking-tighter opacity-90" style={{ fontSize: 'clamp(2rem, 5vw, 6rem)' }}>
                 AGENTS
               </h1>
-              <div className="h-px w-24 bg-brand-blue mb-8"></div>
-              <p className="text-2xl md:text-3xl font-bold text-white leading-tight tracking-tight">
+              <div className="h-px w-16 md:w-24 bg-brand-blue mb-3 md:mb-8"></div>
+              <p className="text-lg md:text-2xl lg:text-3xl font-bold text-white leading-tight tracking-tight">
                 <span className="text-white/60 font-light">for</span>エージェント
               </p>
               
-              <div className="absolute bottom-12 left-12 md:left-16 flex items-center gap-2 text-white/50 text-xs tracking-widest uppercase">
+              <div className="hidden md:flex absolute bottom-12 left-12 md:left-16 items-center gap-2 text-white/50 text-xs tracking-widest uppercase">
                 <Link to="/" className="hover:text-brand-blue transition-colors">Home</Link>
                 <span>/</span>
                 <span className="text-white">For Agents</span>
@@ -46,36 +46,36 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
         {/* Right Side - Content */}
         <main className="w-full md:w-[60%] lg:w-[65%] 2xl:w-[70%] bg-white min-w-0">
           {/* Hero Section */}
-          <section className="px-8 md:px-16 lg:px-24 xl:px-28 2xl:px-32 py-24 md:py-32">
+          <section className="px-5 md:px-10 lg:px-16 xl:px-24 py-12 md:py-24 lg:py-32">
             <div className="max-w-4xl xl:max-w-5xl">
               <ScrollReveal variant="fadeUp" delay={0}>
-                <p className="text-brand-blue font-black tracking-[0.4em] uppercase text-xs mb-6">For Agents & Partners</p>
+                <p className="text-brand-blue font-black tracking-[0.3em] md:tracking-[0.4em] uppercase text-[10px] md:text-xs mb-4 md:mb-6">For Agents & Partners</p>
               </ScrollReveal>
               <ScrollReveal variant="maskReveal" delay={0.1}>
-                <h2 className="font-serif text-slate-900 mb-12 tracking-tight leading-tight" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.8rem)' }}>
+                <h2 className="font-serif text-slate-900 mb-8 md:mb-12 tracking-tight leading-tight" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.8rem)' }}>
                   エージェント様への<br />
                   インフラ提供とパートナーシップ
                 </h2>
               </ScrollReveal>
-              <div className="space-y-6 max-w-3xl">
-                <p className="text-xl md:text-2xl text-slate-900 font-bold leading-relaxed break-keep">
+              <div className="space-y-4 md:space-y-6 max-w-3xl">
+                <p className="text-base md:text-xl lg:text-2xl text-slate-900 font-bold leading-relaxed">
                   SSF Medical Linkが強力なバックエンド・インフラを提供し、<br />エージェント様のビジネスを加速させます。
                 </p>
-                <p className="text-lg text-slate-600 leading-relaxed font-light break-keep">
+                <p className="text-sm md:text-lg text-slate-600 leading-relaxed font-light">
                   日本の自由診療市場には、海外エージェント様が直面する多くの「壁」が存在します。私たちは20年の実績を背景に、その壁を取り払い、透明性の高い取引環境を構築します。
                 </p>
               </div>
 
               {/* ISSUE Section */}
-              <div className="mt-32">
-                <div className="flex items-center gap-8 mb-12 overflow-hidden">
+              <div className="mt-16 md:mt-32">
+                <div className="flex items-center gap-4 md:gap-8 mb-8 md:mb-12 overflow-hidden">
                   <motion.h2 
                     initial={{ x: "100%" }}
                     whileInView={{ x: 0 }}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     viewport={{ once: true }}
                     className="font-serif text-slate-900 tracking-tighter uppercase opacity-80 leading-none"
-                    style={{ fontSize: 'clamp(3.5rem, 9vw, 7rem)' }}
+                    style={{ fontSize: 'clamp(2.5rem, 9vw, 7rem)' }}
                   >
                     Issue
                   </motion.h2>
@@ -83,7 +83,7 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
                 </div>
                 
                 <ScrollReveal variant="fadeUp" delay={0.1}>
-                  <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12 tracking-tight break-keep">
+                  <h3 className="text-xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-8 md:mb-12 tracking-tight">
                     日本の「本物」の医療にアクセスする際の3つの壁
                   </h3>
                 </ScrollReveal>
@@ -121,16 +121,16 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
                       ]
                     }
                   ].map((item) => (
-                    <div key={item.id} className="bg-white p-8 md:p-10">
-                      <div className="mb-5 pb-5 border-b border-slate-100">
-                        <p className="text-brand-blue font-black tracking-[0.2em] uppercase text-sm mb-2">{item.label}</p>
-                        <h4 className="text-xl md:text-2xl font-bold text-slate-900 tracking-tight leading-snug break-keep">{item.title}</h4>
+                    <div key={item.id} className="bg-white p-5 md:p-8 lg:p-10">
+                      <div className="mb-4 md:mb-5 pb-4 md:pb-5 border-b border-slate-100">
+                        <p className="text-brand-blue font-black tracking-[0.2em] uppercase text-[10px] md:text-sm mb-1 md:mb-2">{item.label}</p>
+                        <h4 className="text-base md:text-xl lg:text-2xl font-bold text-slate-900 tracking-tight leading-snug">{item.title}</h4>
                       </div>
-                      <ul className="space-y-3">
+                      <ul className="space-y-2 md:space-y-3">
                         {item.bullets.map((bullet, bi) => (
                           <li key={bi} className="flex gap-3 items-start">
                             <div className="w-1.5 h-1.5 rounded-full bg-brand-blue/40 mt-[0.45rem] shrink-0"></div>
-                            <p className="text-slate-500 text-base leading-relaxed font-light break-keep">{bullet}</p>
+                            <p className="text-slate-500 text-sm md:text-base leading-relaxed font-light">{bullet}</p>
                           </li>
                         ))}
                       </ul>
@@ -142,7 +142,7 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
           </section>
 
           {/* Solution Section */}
-          <section className="px-8 md:px-16 lg:px-24 xl:px-28 2xl:px-32 py-32 bg-slate-50">
+          <section className="px-5 md:px-10 lg:px-16 xl:px-24 py-16 md:py-32 bg-slate-50">
             <div className="max-w-4xl xl:max-w-5xl mx-auto">
               <div className="flex items-center gap-8 mb-16 overflow-hidden">
                 <motion.h2 
@@ -159,8 +159,8 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
               </div>
               
               <ScrollReveal variant="fadeUp" delay={0.05}>
-                <div className="mb-16">
-                  <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 tracking-tight break-keep">SOLUTION：3つの解決策</h3>
+                <div className="mb-8 md:mb-16">
+                  <h3 className="text-xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 md:mb-6 tracking-tight">SOLUTION：3つの解決策</h3>
                 </div>
               </ScrollReveal>
 
@@ -186,7 +186,7 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
                   }
                 ].map((plan, i) => (
                   <ScrollRevealItem key={plan.id}>
-                    <div className="bg-white p-10 rounded-sm border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col">
+                    <div className="bg-white p-6 md:p-10 rounded-sm border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col">
                       <div className="flex items-center gap-4 mb-6">
                         <div className="w-10 h-10 bg-brand-blue text-white rounded-full flex items-center justify-center text-sm font-black">
                           {plan.id}
@@ -256,7 +256,7 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
             {/* Top accent line */}
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-blue/20 to-transparent" />
 
-            <div className="relative z-10 px-8 md:px-16 lg:px-24 xl:px-28 2xl:px-32">
+            <div className="relative z-10 px-5 md:px-10 lg:px-16 xl:px-24">
               <div className="max-w-4xl xl:max-w-5xl mx-auto">
                 <ScrollReveal variant="fadeUp" delay={0.1}>
                   <div className="text-center">
@@ -265,10 +265,10 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
                       Fee Structure
                     </p>
                     {/* Main heading */}
-                    <p className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-slate-900 leading-tight tracking-tight break-keep mb-4">
+                    <p className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-slate-900 leading-tight tracking-tight mb-4">
                       エージェント様から
                     </p>
-                    <p className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold leading-tight tracking-tight break-keep mb-10">
+                    <p className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold leading-tight tracking-tight mb-10">
                       <span
                         style={{
                           background: 'linear-gradient(90deg, #0047AB, #0369a1, #0D9488)',
@@ -298,7 +298,7 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
           </section>
 
           {/* Inquiry CTA */}
-          <section className="relative px-8 md:px-16 lg:px-24 xl:px-28 2xl:px-32 py-40 bg-slate-900 text-white overflow-hidden">
+          <section className="relative px-5 md:px-10 lg:px-16 xl:px-24 py-20 md:py-40 bg-slate-900 text-white overflow-hidden">
             {/* Background Visual: Japan Map & Hinomaru */}
             <div className="absolute inset-0 z-0">
               <img 
@@ -317,40 +317,40 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
             </div>
 
             <div className="relative z-10 max-w-3xl">
-              <p className="text-brand-blue font-black tracking-[0.4em] uppercase text-xs mb-6">Contact Us</p>
+              <p className="text-brand-blue font-black tracking-[0.3em] md:tracking-[0.4em] uppercase text-[10px] md:text-xs mb-4 md:mb-6">Contact Us</p>
               <h2 className="font-serif mb-12 tracking-tight leading-[1.3] break-keep" style={{ fontSize: 'clamp(1.5rem, 3.4vw, 3.4rem)' }}>
                 <span className="block mb-4">日本の医療で、世界を癒す。</span>
                 <span className="text-brand-blue block">共に広めるパートナーを募集。</span>
               </h2>
-              <p className="text-xl text-slate-400 leading-relaxed mb-16 font-light">
+              <p className="text-base md:text-xl text-slate-400 leading-relaxed mb-10 md:mb-16 font-light">
                 SSF Medical Linkは、世界各国のエージェント企業様とのパートナーシップを推進しています。提携条件やサポート内容の詳細については、お気軽にお問い合わせください。
               </p>
               <Link 
                 to="/contact"
-                className="inline-flex items-center gap-6 px-12 py-6 bg-brand-blue text-white font-black text-sm uppercase tracking-[0.4em] hover:bg-white hover:text-slate-900 transition-all shadow-2xl shadow-brand-blue/20"
+                className="inline-flex items-center gap-4 md:gap-6 px-8 md:px-12 py-4 md:py-6 bg-brand-blue text-white font-black text-[10px] md:text-sm uppercase tracking-[0.3em] md:tracking-[0.4em] hover:bg-white hover:text-slate-900 transition-all shadow-2xl shadow-brand-blue/20"
               >
-                Inquiry Form <ArrowRight className="w-5 h-5" />
+                Inquiry Form <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
               </Link>
             </div>
           </section>
 
           {/* Page Navigation */}
-          <section className="px-8 md:px-16 lg:px-24 xl:px-28 2xl:px-32 py-32 border-t border-slate-100">
+          <section className="px-5 md:px-10 lg:px-16 xl:px-24 py-16 md:py-32 border-t border-slate-100">
             <div className="max-w-3xl xl:max-w-4xl">
-              <div className="grid grid-cols-1 gap-8">
-                <Link to="/for-clinics" className="group p-12 bg-slate-50 rounded-[3rem] border border-slate-100 hover:border-brand-blue transition-all">
-                  <p className="text-brand-blue font-black tracking-[0.3em] uppercase text-sm mb-4">Portal for Clinics</p>
-                  <h4 className="text-3xl font-serif text-slate-900 mb-6 group-hover:text-brand-blue transition-colors">For Clinics</h4>
-                  <p className="text-slate-500 mb-8">提携医療機関向けのご案内。院内基盤構築から国際マーケティングまで、段階的な連携プランをご用意しています。</p>
-                  <div className="flex items-center text-brand-blue font-bold text-sm uppercase tracking-widest">
+              <div className="grid grid-cols-1 gap-5 md:gap-8">
+                <Link to="/for-clinics" className="group p-6 md:p-12 bg-slate-50 rounded-2xl md:rounded-[3rem] border border-slate-100 hover:border-brand-blue transition-all">
+                  <p className="text-brand-blue font-black tracking-[0.3em] uppercase text-[10px] md:text-sm mb-3 md:mb-4">Portal for Clinics</p>
+                  <h4 className="text-2xl md:text-3xl font-serif text-slate-900 mb-3 md:mb-6 group-hover:text-brand-blue transition-colors">For Clinics</h4>
+                  <p className="text-slate-500 mb-5 md:mb-8 text-sm md:text-base">提携医療機関向けのご案内。院内基盤構築から国際マーケティングまで、段階的な連携プランをご用意しています。</p>
+                  <div className="flex items-center text-brand-blue font-bold text-xs md:text-sm uppercase tracking-widest">
                     Learn More <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-2" />
                   </div>
                 </Link>
-                <Link to="/about" className="group p-12 bg-slate-50 rounded-[3rem] border border-slate-100 hover:border-brand-blue transition-all">
-                  <p className="text-brand-blue font-black tracking-[0.3em] uppercase text-sm mb-4">About SML</p>
-                  <h4 className="text-3xl font-serif text-slate-900 mb-6 group-hover:text-brand-blue transition-colors">SMLとは</h4>
-                  <p className="text-slate-500 mb-8">私たちのビジョンと選定基準について</p>
-                  <div className="flex items-center text-brand-blue font-bold text-sm uppercase tracking-widest">
+                <Link to="/about" className="group p-6 md:p-12 bg-slate-50 rounded-2xl md:rounded-[3rem] border border-slate-100 hover:border-brand-blue transition-all">
+                  <p className="text-brand-blue font-black tracking-[0.3em] uppercase text-[10px] md:text-sm mb-3 md:mb-4">About SML</p>
+                  <h4 className="text-2xl md:text-3xl font-serif text-slate-900 mb-3 md:mb-6 group-hover:text-brand-blue transition-colors">SMLとは</h4>
+                  <p className="text-slate-500 mb-5 md:mb-8 text-sm md:text-base">私たちのビジョンと選定基準について</p>
+                  <div className="flex items-center text-brand-blue font-bold text-xs md:text-sm uppercase tracking-widest">
                     Learn More <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-2" />
                   </div>
                 </Link>

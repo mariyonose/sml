@@ -49,12 +49,21 @@ export const Home: React.FC<HomeProps> = ({ lang }) => {
   // 各医師写真のスタイル設定
   // 全写真を横長（ratio 1.1〜1.4）にトリミング済み → h-full w-auto で統一
   // horita のみ contain で全身表示（横長写真なので下部に余白が出ないよう bottom center）
-  const doctorImgStyles: Record<string, React.CSSProperties> = {
+  // PC用スタイル（md以上）
+  const doctorImgStylesPC: Record<string, React.CSSProperties> = {
     yamamoto: { height: '100%', top: '0', width: 'auto', maxWidth: 'min(58%, 860px)', right: 'max(0px, calc((100vw - 1536px) / 2))', objectFit: 'contain', objectPosition: 'bottom center', transformOrigin: 'bottom right' },
     horita:   { height: '100%', top: '0', width: 'auto', maxWidth: 'min(58%, 860px)', right: 'max(0px, calc((100vw - 1536px) / 2))', objectFit: 'contain', objectPosition: 'bottom center', transformOrigin: 'bottom right' },
     harima:   { height: '100%', top: '0', width: 'auto', maxWidth: 'min(58%, 860px)', right: 'max(0px, calc((100vw - 1536px) / 2))', objectFit: 'contain', objectPosition: 'bottom center', transformOrigin: 'bottom right' },
     shida:    { height: '100%', top: '0', width: 'auto', maxWidth: 'min(58%, 860px)', right: 'max(0px, calc((100vw - 1536px) / 2))', objectFit: 'contain', objectPosition: 'bottom center', transformOrigin: 'bottom right' },
     ohashi:   { height: '100%', top: '0', width: 'auto', maxWidth: 'min(58%, 860px)', right: 'max(0px, calc((100vw - 1536px) / 2))', objectFit: 'contain', objectPosition: 'bottom center', transformOrigin: 'bottom right' },
+  };
+  // スマホ用スタイル（md未満）：医師を右寄せ・上から表示
+  const doctorImgStylesSP: Record<string, React.CSSProperties> = {
+    yamamoto: { height: '85%', bottom: '0', top: 'auto', width: 'auto', maxWidth: '75%', right: '0', objectFit: 'contain', objectPosition: 'bottom right', transformOrigin: 'bottom right' },
+    horita:   { height: '85%', bottom: '0', top: 'auto', width: 'auto', maxWidth: '75%', right: '0', objectFit: 'contain', objectPosition: 'bottom right', transformOrigin: 'bottom right' },
+    harima:   { height: '85%', bottom: '0', top: 'auto', width: 'auto', maxWidth: '75%', right: '0', objectFit: 'contain', objectPosition: 'bottom right', transformOrigin: 'bottom right' },
+    shida:    { height: '85%', bottom: '0', top: 'auto', width: 'auto', maxWidth: '75%', right: '0', objectFit: 'contain', objectPosition: 'bottom right', transformOrigin: 'bottom right' },
+    ohashi:   { height: '85%', bottom: '0', top: 'auto', width: 'auto', maxWidth: '75%', right: '0', objectFit: 'contain', objectPosition: 'bottom right', transformOrigin: 'bottom right' },
   };
 
   return (
@@ -72,8 +81,8 @@ export const Home: React.FC<HomeProps> = ({ lang }) => {
             position: 'sticky',
             top: 0,
             zIndex: 0,
-            height: '85vh',
-            minHeight: '560px',
+            height: 'calc(100svh - 0px)',
+            minHeight: '600px',
           }}
           className="relative w-full flex items-center overflow-hidden bg-white"
         >
@@ -116,10 +125,11 @@ export const Home: React.FC<HomeProps> = ({ lang }) => {
                   /* 医師スライド：リサイズ済み画像（1200×1600px・人物サイズ統一済み）
                    * 右寄せで大きく表示し、左側にテキストコンテンツが重なるレイアウト */
                   <div className="absolute inset-0 w-full h-full bg-white">
+                    {/* PC用医師画像 */}
                     <img 
                       src={slide.image} 
-                      className="absolute grayscale-[10%] animate-ken-burns" 
-                      style={doctorImgStyles[slide.id] || {
+                      className="absolute grayscale-[10%] animate-ken-burns hidden md:block" 
+                      style={doctorImgStylesPC[slide.id] || {
                         height: '100%',
                         top: '0',
                         width: 'auto',
@@ -128,6 +138,23 @@ export const Home: React.FC<HomeProps> = ({ lang }) => {
                         objectFit: 'cover',
                         objectPosition: 'top center',
                         transformOrigin: 'top right',
+                      }} 
+                      alt={slide.name}
+                    />
+                    {/* スマホ用医師画像 */}
+                    <img 
+                      src={slide.image} 
+                      className="absolute grayscale-[10%] animate-ken-burns md:hidden" 
+                      style={doctorImgStylesSP[slide.id] || {
+                        height: '85%',
+                        bottom: '0',
+                        top: 'auto',
+                        width: 'auto',
+                        maxWidth: '75%',
+                        right: '0',
+                        objectFit: 'contain',
+                        objectPosition: 'bottom right',
+                        transformOrigin: 'bottom right',
                       }} 
                       alt={slide.name}
                     />
@@ -143,42 +170,21 @@ export const Home: React.FC<HomeProps> = ({ lang }) => {
             ))}
           </div>
           
-          {/* ===== スマホ用ヒーローレイアウト（md未満）: 上部に医師情報、下部にコピー＋ボタン ===== */}
-          <div className="md:hidden absolute inset-0 z-10 flex flex-col justify-between">
-            {/* 上部：医師情報（左寄せ） */}
-            <div className="px-5 w-full pt-16">
-              <motion.div
-                key={`profile-sp-${currentSlide}`}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="text-left"
-              >
-                <p className={`text-[10px] font-black uppercase tracking-[0.3em] mb-1 ${slides[currentSlide].isBrand ? 'text-cyan-400' : 'text-brand-blue'}`}>
-                  {slides[currentSlide].isBrand ? 'Japan Pinnacle Bridge' : 'Verified Master Class Doctor'}
-                </p>
-                <p className={`text-lg font-serif leading-tight ${slides[currentSlide].isBrand ? 'text-white' : 'text-slate-900'}`}>
-                  {slides[currentSlide].name}
-                </p>
-                <p className={`text-[10px] font-bold uppercase tracking-[0.2em] mt-0.5 ${slides[currentSlide].isBrand ? 'text-white/60' : 'text-slate-500'}`}>
-                  {slides[currentSlide].title}
-                </p>
-              </motion.div>
-            </div>
-
-            {/* 下部：キャッチコピー・サブタイトル・ボタン */}
-            <div className="px-5 w-full pb-10">
+          {/* ===== スマホ用ヒーローレイアウト（md未満）: 下部にコピー＋ボタン＋医師情報 ===== */}
+          <div className="md:hidden absolute inset-0 z-10 flex flex-col justify-end">
+            {/* 下部：キャッチコピー・サブタイトル・ボタン・医師情報 */}
+            <div className="px-5 w-full pb-8 pt-4" style={{ background: 'linear-gradient(to top, rgba(255,255,255,0.97) 70%, rgba(255,255,255,0.6) 90%, transparent 100%)' }}>
               {/* ラベル */}
               <motion.div key="sp-label" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-2">
-                <span className={`inline-block font-black tracking-[0.3em] uppercase text-[10px] ${slides[currentSlide].isBrand ? 'text-cyan-400' : 'text-brand-blue'}`}>
+                <span className={`inline-block font-black tracking-[0.3em] uppercase text-[10px] ${slides[currentSlide].isBrand ? 'text-brand-blue' : 'text-brand-blue'}`}>
                   {slides[currentSlide].isBrand ? 'Authorized Medical Portal' : 'Certified Specialist Network'}
                 </span>
               </motion.div>
               {/* メインコピー */}
-              <div className="mb-2">
+              <div className="mb-3">
                 <h1
-                  className={`font-serif leading-[1.1] tracking-[-0.02em] ${slides[currentSlide].isBrand ? 'text-white' : 'text-slate-900'}`}
-                  style={{ fontSize: 'clamp(1.9rem, 7vw, 2.5rem)' }}
+                  className={`font-serif leading-[1.15] tracking-[-0.02em] ${slides[currentSlide].isBrand ? 'text-white' : 'text-slate-900'}`}
+                  style={{ fontSize: 'clamp(2rem, 8vw, 2.8rem)' }}
                 >
                   {t('hero_copy').split('\n').map((line, i) => (
                     <motion.span key={`sp-copy-${i}`} className="block"
@@ -190,21 +196,38 @@ export const Home: React.FC<HomeProps> = ({ lang }) => {
                 </h1>
               </div>
               {/* サブタイトル */}
-              <motion.div key="sp-sub" className="mb-4" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }}>
-                <p className={`text-xs font-light leading-relaxed ${slides[currentSlide].isBrand ? 'text-blue-100/90' : 'text-slate-600'}`}>
+              <motion.div key="sp-sub" className="mb-5" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }}>
+                <p className={`text-[11px] font-light leading-relaxed ${slides[currentSlide].isBrand ? 'text-blue-100/90' : 'text-slate-500'}`}>
                   {t('hero_subtitle')}
                 </p>
               </motion.div>
               {/* ボタン */}
-              <div className="flex flex-row gap-3">
-                <Link to="/for-clinics" className="group relative flex-shrink-0 px-4 py-2.5 bg-brand-blue overflow-hidden shadow-xl shadow-brand-blue/30 transition-transform hover:-translate-y-1">
+              <div className="flex flex-row gap-3 mb-5">
+                <Link to="/for-clinics" className="group relative flex-1 text-center px-4 py-3 bg-brand-blue overflow-hidden shadow-xl shadow-brand-blue/30 transition-transform active:scale-95">
                   <span className="relative z-10 text-white font-bold text-[11px] uppercase tracking-[0.2em] whitespace-nowrap">{t('nav_for_clinics')}</span>
                   <div className="absolute inset-0 bg-slate-900 translate-y-full transition-transform duration-500 group-hover:translate-y-0"></div>
                 </Link>
-                <Link to="/for-agents" className={`flex-shrink-0 px-4 py-2.5 border font-bold text-[11px] uppercase tracking-[0.2em] whitespace-nowrap transition-all duration-500 backdrop-blur-sm shadow-sm hover:-translate-y-1 ${slides[currentSlide].isBrand ? 'bg-brand-teal border-transparent text-white' : 'bg-brand-teal border-transparent text-white'}`}>
+                <Link to="/for-agents" className="flex-1 text-center px-4 py-3 bg-brand-teal font-bold text-[11px] uppercase tracking-[0.2em] whitespace-nowrap text-white transition-all duration-500 active:scale-95">
                   {t('nav_for_agents')}
                 </Link>
               </div>
+              {/* 医師情報（下部） */}
+              {!slides[currentSlide].isBrand && (
+                <motion.div
+                  key={`profile-sp-${currentSlide}`}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  className="flex items-center gap-3 border-t border-slate-200 pt-4"
+                >
+                  <div className="h-6 w-[2px] bg-brand-blue flex-shrink-0" />
+                  <div>
+                    <p className="text-[9px] font-black uppercase tracking-[0.3em] text-brand-blue mb-0.5">Verified Master Class Doctor</p>
+                    <p className="text-sm font-serif leading-tight text-slate-900">{slides[currentSlide].name}</p>
+                    <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400 mt-0.5">{slides[currentSlide].title}</p>
+                  </div>
+                </motion.div>
+              )}
             </div>
           </div>
 
