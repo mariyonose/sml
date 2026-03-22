@@ -305,7 +305,7 @@ export const Home: React.FC<HomeProps> = ({ lang }) => {
                 <h2 className="text-xs font-black text-brand-blue tracking-[0.5em] uppercase mb-4">{t('nav_about')}</h2>
               </ScrollReveal>
               <ScrollReveal variant="maskReveal" delay={0.12}>
-                <p className="text-2xl md:text-5xl lg:text-6xl font-serif text-slate-900 max-w-4xl mx-auto leading-[1.4] md:leading-[1.3] break-words md:break-keep">
+                <p className="text-xl md:text-5xl lg:text-6xl font-serif text-slate-900 max-w-4xl mx-auto leading-[1.4] md:leading-[1.3] break-words md:break-keep">
                   SSF Medical Linkは、最高峰の医療技術と<br className="hidden md:block" />
                   世界中のニーズを繋ぐ「信頼の架け橋」です。
                 </p>
@@ -409,7 +409,7 @@ export const Home: React.FC<HomeProps> = ({ lang }) => {
           <div className="text-center mb-10 md:mb-16">
             <div className="mb-8">
               <ScrollReveal variant="fadeUp" delay={0}>
-                <h3 className="text-4xl md:text-7xl lg:text-8xl font-serif text-slate-900 tracking-tight leading-none mb-4 font-extralight">
+                <h3 className="text-3xl md:text-7xl lg:text-8xl font-serif text-slate-900 tracking-tight leading-none mb-4 font-extralight">
                   <span className="text-red-600">JAPAN</span> PREMIUM
                 </h3>
               </ScrollReveal>
