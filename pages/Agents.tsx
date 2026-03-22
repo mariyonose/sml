@@ -2,45 +2,20 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useInView, useMotionValue, animate } from 'framer-motion';
+import { ScrollReveal, ScrollRevealGroup, ScrollRevealItem } from '../components/ScrollReveal';
 import { Language } from '../types';
-import { CheckCircle2, ArrowRight, ShieldCheck, TrendingUp, Search, Languages, DoorClosed, FileText, Shuffle, Globe, Zap, BarChart3 } from 'lucide-react';
+import { ArrowRight, ShieldCheck, TrendingUp, Zap, BarChart3, Search } from 'lucide-react';
 
 interface AgentsProps {
   lang: Language;
 }
-
-const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const motionValue = useMotionValue(0);
-
-  useEffect(() => {
-    if (isInView) {
-      const controls = animate(motionValue, value, { 
-        duration: 2, 
-        ease: [0.16, 1, 0.3, 1],
-      });
-      return controls.stop;
-    }
-  }, [isInView, value, motionValue]);
-
-  useEffect(() => {
-    return motionValue.on("change", (latest) => {
-      if (ref.current) {
-        ref.current.textContent = Intl.NumberFormat("en-US").format(Math.floor(latest)) + suffix;
-      }
-    });
-  }, [motionValue, suffix]);
-
-  return <span ref={ref}>0{suffix}</span>;
-};
 
 export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
   return (
     <div className="bg-white animate-in fade-in duration-700">
       <div className="flex flex-col md:flex-row min-h-screen">
         {/* Left Side - Visual & Title */}
-        <aside className="w-full md:w-[40%] lg:w-[35%] md:h-screen md:sticky md:top-0 overflow-hidden bg-slate-900">
+        <aside className="w-full md:w-[40%] lg:w-[35%] 2xl:w-[30%] md:h-screen md:sticky md:top-0 overflow-hidden bg-slate-900">
           <div className="relative h-[60vh] md:h-full w-full">
             <img 
               src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1200" 
@@ -56,7 +31,7 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
               </h1>
               <div className="h-px w-24 bg-brand-blue mb-8"></div>
               <p className="text-2xl md:text-3xl font-bold text-white leading-tight tracking-tight">
-                エージェント向け
+                <span className="text-white/60 font-light">for</span>エージェント
               </p>
               
               <div className="absolute bottom-12 left-12 md:left-16 flex items-center gap-2 text-white/50 text-xs tracking-widest uppercase">
@@ -69,14 +44,19 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
         </aside>
 
         {/* Right Side - Content */}
-        <main className="w-full md:w-[60%] lg:w-[65%] bg-white">
+        <main className="w-full md:w-[60%] lg:w-[65%] 2xl:w-[70%] bg-white">
           {/* Hero Section */}
-          <section className="px-8 md:px-16 lg:px-24 py-24 md:py-32">
-            <div className="max-w-4xl">
-              <p className="text-brand-blue font-black tracking-[0.4em] uppercase text-xs mb-6">For Agents & Partners</p>
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif text-slate-900 mb-12 tracking-tight leading-tight break-keep">
-                エージェント様への<br />インフラ提供とパートナーシップ
-              </h2>
+          <section className="px-8 md:px-16 lg:px-24 xl:px-28 2xl:px-32 py-24 md:py-32">
+            <div className="max-w-4xl xl:max-w-5xl">
+              <ScrollReveal variant="fadeUp" delay={0}>
+                <p className="text-brand-blue font-black tracking-[0.4em] uppercase text-xs mb-6">For Agents & Partners</p>
+              </ScrollReveal>
+              <ScrollReveal variant="maskReveal" delay={0.1}>
+                <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif text-slate-900 mb-12 tracking-tight leading-tight break-keep">
+                  エージェント様への<br />
+                  インフラ提供とパートナーシップ
+                </h2>
+              </ScrollReveal>
               <div className="space-y-6 max-w-3xl">
                 <p className="text-xl md:text-2xl text-slate-900 font-bold leading-relaxed break-keep">
                   SSF Medical Linkが強力なバックエンド・インフラを提供し、<br />エージェント様のビジネスを加速させます。
@@ -86,7 +66,7 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
                 </p>
               </div>
 
-              {/* Challenges Section */}
+              {/* ISSUE Section */}
               <div className="mt-32">
                 <div className="flex items-center gap-8 mb-12 overflow-hidden">
                   <motion.h2 
@@ -101,29 +81,58 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
                   <div className="h-[1.5px] flex-grow bg-slate-900/10"></div>
                 </div>
                 
-                <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12 tracking-tight break-keep">
-                  日本の「本物」の医療にアクセスする際の5つの壁
-                </h3>
+                <ScrollReveal variant="fadeUp" delay={0.1}>
+                  <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12 tracking-tight break-keep">
+                    日本の「本物」の医療にアクセスする際の3つの壁
+                  </h3>
+                </ScrollReveal>
 
                 <div className="bg-slate-100 p-4 rounded-sm space-y-2">
                   {[
-                    { id: '01', label: 'INFORMATION', title: '情報のブラックボックス化', desc: '「誰が本当の名医か」がわからない。ネット上の情報は玉石混交で、広告と実力の見極めが困難。' },
-                    { id: '02', label: 'LANGUAGE', title: '言語と文化の壁', desc: '予約、問診、同意書がすべて日本語。医療専門用語の翻訳が難しく、トラブルのリスクが高い。' },
-                    { id: '03', label: 'EXCLUSIVE', title: '一見さんお断り', desc: 'トップドクターは紹介制や完全予約制が多く、新規エージェントからの直接連絡は門前払いされる。' },
-                    { id: '04', label: 'OPERATIONS', title: '個別手配の限界', desc: 'クリニックごとに契約・送金・調整が必要。提携先が増えるほど業務負荷が指数関数的に増大する。' },
-                    { id: '05', label: 'CROSS-SELL', title: 'クロスセルの断念', desc: '「再生医療も、顔の整形もしたい」患者の要望が多岐にわたる場合、複数のクリニックを横断して調整する術がない。' }
+                    {
+                      id: '01',
+                      label: 'TRUST',
+                      title: '「本当に信頼できる名医」が見つからない',
+                      bullets: [
+                        '日本には多くの医師がいますが、技術の高さや実績を外から見極めるのは簡単ではありません。',
+                        '患者様に自信を持って「この先生なら安心です」と紹介できる明確な基準がない。',
+                        'エージェント様にとって、これが一番の不安要素となっています。',
+                      ]
+                    },
+                    {
+                      id: '02',
+                      label: 'OPERATIONS',
+                      title: 'クリニックごとの「やり取り」が大変',
+                      bullets: [
+                        '提携先が増えるほど、予約ルール・契約手続き・支払い調整が複雑になる。',
+                        '事務作業の負担が大きく、患者様へのカウンセリングに集中できない。',
+                        'バックオフィス業務に追われ、本来の営業活動が後回しになりがち。',
+                      ]
+                    },
+                    {
+                      id: '03',
+                      label: 'CROSS-SELL',
+                      title: '「プラスアルファ」の提案が難しい',
+                      bullets: [
+                        '単一の治療プランを案内するだけで終わってしまい、滞在全体の提案ができていない。',
+                        '患者様のニーズをトータルで満たせず、成約の一歩手前で踏み切れないケースがある。',
+                        '幅広い提案力の欠如が、リピート率の低下に繋がっている。',
+                      ]
+                    }
                   ].map((item) => (
-                    <div key={item.id} className="flex flex-col md:flex-row bg-white">
-                      <div className="w-full md:w-[35%] p-8 md:p-10 flex flex-col justify-center border-b md:border-b-0 md:border-r border-slate-100">
-                        <p className="text-brand-blue font-black tracking-[0.2em] uppercase text-[10px] mb-3">{item.label}</p>
-                        <h4 className="text-xl font-bold text-slate-900 tracking-tight leading-tight">{item.title}</h4>
+                    <div key={item.id} className="bg-white p-8 md:p-10">
+                      <div className="mb-5 pb-5 border-b border-slate-100">
+                        <p className="text-brand-blue font-black tracking-[0.2em] uppercase text-sm mb-2">{item.label}</p>
+                        <h4 className="text-xl md:text-2xl font-bold text-slate-900 tracking-tight leading-snug break-keep">{item.title}</h4>
                       </div>
-                      <div className="w-full md:w-[65%] p-8 md:p-10 flex items-center">
-                        <div className="flex gap-4 items-start">
-                          <div className="w-1.5 h-1.5 rounded-full bg-brand-blue/30 mt-2 shrink-0"></div>
-                          <p className="text-slate-500 text-sm leading-relaxed font-light">{item.desc}</p>
-                        </div>
-                      </div>
+                      <ul className="space-y-3">
+                        {item.bullets.map((bullet, bi) => (
+                          <li key={bi} className="flex gap-3 items-start">
+                            <div className="w-1.5 h-1.5 rounded-full bg-brand-blue/40 mt-[0.45rem] shrink-0"></div>
+                            <p className="text-slate-500 text-base leading-relaxed font-light break-keep">{bullet}</p>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   ))}
                 </div>
@@ -132,8 +141,8 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
           </section>
 
           {/* Solution Section */}
-          <section className="px-8 md:px-16 lg:px-24 py-32 bg-slate-50">
-            <div className="max-w-4xl mx-auto">
+          <section className="px-8 md:px-16 lg:px-24 xl:px-28 2xl:px-32 py-32 bg-slate-50">
+            <div className="max-w-4xl xl:max-w-5xl mx-auto">
               <div className="flex items-center gap-8 mb-16 overflow-hidden">
                 <motion.h2 
                   initial={{ y: "100%" }}
@@ -147,102 +156,147 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
                 <div className="h-[1.5px] flex-grow bg-slate-900/10"></div>
               </div>
               
-              <div className="mb-20">
-                <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 tracking-tight break-keep">SMLをハブにする理由</h3>
-                <p className="text-xl text-slate-600 font-light break-keep">SSFグループの20年の実績が、エージェント様の信頼の裏付けとなります。</p>
-              </div>
+              <ScrollReveal variant="fadeUp" delay={0.05}>
+                <div className="mb-16">
+                  <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 tracking-tight break-keep">SOLUTION：3つの解決策</h3>
+                </div>
+              </ScrollReveal>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <ScrollRevealGroup stagger={0.15}>
                 {[
                   {
-                    title: '認定ドクターへの即時アクセス',
+                    id: '1',
+                    title: '独自の認定基準による「名医の可視化」',
+                    icon: <Search className="w-6 h-6" />,
+                    desc: '独自の認定基準に基づき、技術・人柄ともに最高峰の医師だけを厳選。エージェント様が迷うことなく、患者様へ「真の名医」を推奨できる環境を整えます。'
+                  },
+                  {
+                    id: '2',
+                    title: '全てがスムーズに完結する「ワンストップ窓口」',
                     icon: <Zap className="w-6 h-6" />,
-                    desc: '「一見さんお断り」のトップドクターへ、SMLのネットワークを通じて即座にアクセス。',
-                    items: ['SSF認定ドクターの紹介', '優先予約枠の確保', 'ドクターとの直接連携']
+                    desc: 'クリニックごとに異なる契約や予約、支払いなどの煩雑な実務をSMLが集約。事務負担を最小限に抑え、患者様へのカウンセリングに集中できる体制を提供します。'
                   },
                   {
-                    title: '公正・透明な取引環境',
-                    icon: <ShieldCheck className="w-6 h-6" />,
-                    desc: '不透明なキックバックを排除。クリニック公認の適正価格で提供します。',
-                    items: ['適正価格の保証', '透明な報酬体系', 'コンプライアンス遵守']
-                  },
-                  {
-                    title: '煩雑な実務の完全代行',
+                    id: '3',
+                    title: '顧客満足度を最大化する「トータルプロデュース」',
                     icon: <BarChart3 className="w-6 h-6" />,
-                    desc: '多言語での問診、決済、キャンセル管理まで。バックエンドを全て代行。',
-                    items: ['多言語問診代行', '国際決済サポート', 'ロジスティクス管理']
+                    desc: '単一の治療に留まらず、滞在全体の満足度を高めるプランニングを支援。高品質な情報提供と丁寧なアフターケアにより、成約率とリピート率の向上を実現します。'
                   }
                 ].map((plan, i) => (
-                  <div key={i} className="bg-white p-10 rounded-sm border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col">
-                    <div className="w-12 h-12 bg-slate-50 text-brand-blue rounded-full flex items-center justify-center mb-6">
-                      {plan.icon}
+                  <ScrollRevealItem key={plan.id}>
+                    <div className="bg-white p-10 rounded-sm border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col">
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className="w-10 h-10 bg-brand-blue text-white rounded-full flex items-center justify-center text-sm font-black">
+                          {plan.id}
+                        </div>
+                        <div className="w-10 h-10 bg-slate-50 text-brand-blue rounded-full flex items-center justify-center">
+                          {plan.icon}
+                        </div>
+                      </div>
+                      <h4 className="text-xl font-bold text-slate-900 mb-4 tracking-tight leading-snug break-keep">{plan.title}</h4>
+                      <p className="text-slate-500 text-base leading-relaxed flex-grow break-keep">
+                        {plan.desc}
+                      </p>
                     </div>
-                    <h4 className="text-lg font-bold text-slate-900 mb-4 tracking-tight">{plan.title}</h4>
-                    <p className="text-slate-500 text-xs leading-relaxed mb-8 flex-grow">
-                      {plan.desc}
-                    </p>
-                    <ul className="space-y-3 border-t border-slate-100 pt-6">
-                      {plan.items.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-[11px] text-slate-600 font-medium">
-                          <div className="w-1 h-1 bg-brand-blue rounded-full mt-1.5 shrink-0"></div>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  </ScrollRevealItem>
                 ))}
-              </div>
+              </ScrollRevealGroup>
             </div>
           </section>
 
-          {/* Referral Fee Section */}
-          <section className="px-8 md:px-16 lg:px-24 py-32 bg-white">
-            <div className="max-w-4xl mx-auto">
-              <div className="relative py-24 overflow-hidden">
-                {/* Offset background block */}
-                <div className="absolute top-0 right-0 w-[80%] h-full bg-slate-50 -z-10 rounded-sm"></div>
-                
-                <div className="relative z-10">
-                  <div className="flex items-center gap-8 mb-12">
-                    <h2 className="text-6xl md:text-9xl font-serif text-slate-900 tracking-tighter uppercase opacity-80 leading-none">Business</h2>
-                    <div className="h-[1.5px] flex-grow bg-slate-900/10"></div>
-                  </div>
-                  
-                  <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12 tracking-tight break-keep">
-                    透明性の高い成果報酬モデル
-                  </h3>
-                  
-                  <p className="text-lg text-slate-600 leading-relaxed mb-16 max-w-2xl break-keep">
-                    エージェント様の集客努力を正当に評価し、安定した収益機会を提供します。不透明な上乗せを排除し、持続可能なパートナーシップを築きます。
-                  </p>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div className="group">
-                      <div className="w-12 h-12 rounded-full border border-slate-300 flex items-center justify-center mb-6 group-hover:border-brand-blue group-hover:bg-brand-blue/5 transition-all duration-500">
-                        <TrendingUp className="w-6 h-6 text-slate-400 group-hover:text-brand-blue transition-colors" />
-                      </div>
-                      <h4 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">収益の最大化</h4>
-                      <p className="text-slate-500 text-sm leading-relaxed font-light">
-                        高品質な医療提供による高い成約率と、富裕層クライアントのリピート・紹介によるLTVの向上。
-                      </p>
+          {/* No Commission Banner */}
+          <section className="relative overflow-hidden py-32 md:py-40">
+            {/* Light geometric background */}
+            <div className="absolute inset-0 bg-slate-50" />
+            {/* Hexagon / diamond grid pattern */}
+            <svg
+              className="absolute inset-0 w-full h-full opacity-[0.07]"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <pattern id="hex-pattern" x="0" y="0" width="60" height="52" patternUnits="userSpaceOnUse">
+                  <polygon
+                    points="30,2 58,17 58,47 30,62 2,47 2,17"
+                    fill="none"
+                    stroke="#0047AB"
+                    strokeWidth="1"
+                  />
+                  <polygon
+                    points="30,14 46,23 46,41 30,50 14,41 14,23"
+                    fill="none"
+                    stroke="#0047AB"
+                    strokeWidth="0.5"
+                  />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#hex-pattern)" />
+            </svg>
+            {/* Diagonal lines accent */}
+            <svg
+              className="absolute inset-0 w-full h-full opacity-[0.04]"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <pattern id="diag-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                  <line x1="0" y1="0" x2="0" y2="20" stroke="#0047AB" strokeWidth="1" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#diag-pattern)" />
+            </svg>
+            {/* Radial glow center */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full bg-brand-blue/5 blur-[100px] pointer-events-none" />
+            {/* Large decorative circles */}
+            <div className="absolute -top-24 -right-24 w-[400px] h-[400px] rounded-full border border-brand-blue/10" />
+            <div className="absolute -top-12 -right-12 w-[260px] h-[260px] rounded-full border border-brand-blue/8" />
+            <div className="absolute -bottom-20 -left-20 w-[320px] h-[320px] rounded-full border border-brand-blue/8" />
+            {/* Bottom accent line */}
+            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-blue/30 to-transparent" />
+            {/* Top accent line */}
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-blue/20 to-transparent" />
+
+            <div className="relative z-10 px-8 md:px-16 lg:px-24 xl:px-28 2xl:px-32">
+              <div className="max-w-4xl xl:max-w-5xl mx-auto">
+                <ScrollReveal variant="fadeUp" delay={0.1}>
+                  <div className="text-center">
+                     {/* Label */}
+                    <p className="inline-block text-brand-blue font-black tracking-[0.5em] uppercase text-xs mb-8 border border-brand-blue/40 px-4 py-2">
+                      Fee Structure
+                    </p>
+                    {/* Main heading */}
+                    <p className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-slate-900 leading-tight tracking-tight break-keep mb-4">
+                      エージェント様から
+                    </p>
+                    <p className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold leading-tight tracking-tight break-keep mb-10">
+                      <span
+                        style={{
+                          background: 'linear-gradient(90deg, #0047AB, #0369a1, #0D9488)',
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                          backgroundClip: 'text',
+                        }}
+                      >
+                        手数料はいただきません。
+                      </span>
+                    </p>
+                    {/* Divider */}
+                    <div className="flex items-center justify-center gap-4 mb-10">
+                      <div className="h-px w-16 bg-gradient-to-r from-transparent to-brand-blue/60" />
+                      <div className="w-2 h-2 bg-brand-blue/60 rotate-45" />
+                      <div className="h-px w-16 bg-gradient-to-l from-transparent to-brand-blue/60" />
                     </div>
-                    <div className="group">
-                      <div className="w-12 h-12 rounded-full border border-slate-300 flex items-center justify-center mb-6 group-hover:border-brand-blue group-hover:bg-brand-blue/5 transition-all duration-500">
-                        <ShieldCheck className="w-6 h-6 text-slate-400 group-hover:text-brand-blue transition-colors" />
-                      </div>
-                      <h4 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">リスクフリーな提携</h4>
-                      <p className="text-slate-500 text-sm leading-relaxed font-light">
-                        固定費なし。成約時のみ手数料が発生するため、リスクなく日本市場への展開を開始いただけます。
-                      </p>
-                    </div>
+                    {/* Description */}
+                    <p className="text-lg md:text-xl text-slate-600 font-light leading-relaxed max-w-2xl mx-auto break-keep">
+                      SMLへの参加・ご利用にあたって、エージェント様側に費用は一切発生しません。<br className="hidden md:block" />
+                      安心してパートナーシップをご検討ください。
+                    </p>
                   </div>
-                </div>
+                </ScrollReveal>
               </div>
             </div>
           </section>
 
           {/* Inquiry CTA */}
-          <section className="relative px-8 md:px-16 lg:px-24 py-40 bg-slate-900 text-white overflow-hidden">
+          <section className="relative px-8 md:px-16 lg:px-24 xl:px-28 2xl:px-32 py-40 bg-slate-900 text-white overflow-hidden">
             {/* Background Visual: Japan Map & Hinomaru */}
             <div className="absolute inset-0 z-0">
               <img 
@@ -262,16 +316,16 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
 
             <div className="relative z-10 max-w-3xl">
               <p className="text-brand-blue font-black tracking-[0.4em] uppercase text-xs mb-6">Contact Us</p>
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif mb-12 tracking-tight leading-tight">
-                日本の医療で、世界を癒す。<br />
-                <span className="text-brand-blue">共に広めるパートナーを募集。</span>
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif mb-12 tracking-tight leading-[1.3]">
+                <span className="block mb-4">日本の医療で、世界を癒す。</span>
+                <span className="text-brand-blue block">共に広めるパートナーを募集。</span>
               </h2>
               <p className="text-xl text-slate-400 leading-relaxed mb-16 font-light">
                 SSF Medical Linkは、世界各国のエージェント企業様とのパートナーシップを推進しています。提携条件やサポート内容の詳細については、お気軽にお問い合わせください。
               </p>
               <Link 
                 to="/contact"
-                className="inline-flex items-center gap-6 px-12 py-6 bg-brand-blue text-white font-black text-xs uppercase tracking-[0.4em] hover:bg-white hover:text-slate-900 transition-all shadow-2xl shadow-brand-blue/20"
+                className="inline-flex items-center gap-6 px-12 py-6 bg-brand-blue text-white font-black text-sm uppercase tracking-[0.4em] hover:bg-white hover:text-slate-900 transition-all shadow-2xl shadow-brand-blue/20"
               >
                 Inquiry Form <ArrowRight className="w-5 h-5" />
               </Link>
@@ -279,11 +333,11 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
           </section>
 
           {/* Page Navigation */}
-          <section className="px-8 md:px-16 lg:px-24 py-32 border-t border-slate-100">
-            <div className="max-w-3xl">
+          <section className="px-8 md:px-16 lg:px-24 xl:px-28 2xl:px-32 py-32 border-t border-slate-100">
+            <div className="max-w-3xl xl:max-w-4xl">
               <div className="grid grid-cols-1 gap-8">
                 <Link to="/for-clinics" className="group p-12 bg-slate-50 rounded-[3rem] border border-slate-100 hover:border-brand-blue transition-all">
-                  <p className="text-brand-blue font-black tracking-[0.3em] uppercase text-[10px] mb-4">Portal for Clinics</p>
+                  <p className="text-brand-blue font-black tracking-[0.3em] uppercase text-sm mb-4">Portal for Clinics</p>
                   <h4 className="text-3xl font-serif text-slate-900 mb-6 group-hover:text-brand-blue transition-colors">For Clinics</h4>
                   <p className="text-slate-500 mb-8">提携医療機関向けのご案内。院内基盤構築から国際マーケティングまで、段階的な連携プランをご用意しています。</p>
                   <div className="flex items-center text-brand-blue font-bold text-sm uppercase tracking-widest">
@@ -291,7 +345,7 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
                   </div>
                 </Link>
                 <Link to="/about" className="group p-12 bg-slate-50 rounded-[3rem] border border-slate-100 hover:border-brand-blue transition-all">
-                  <p className="text-brand-blue font-black tracking-[0.3em] uppercase text-[10px] mb-4">About SML</p>
+                  <p className="text-brand-blue font-black tracking-[0.3em] uppercase text-sm mb-4">About SML</p>
                   <h4 className="text-3xl font-serif text-slate-900 mb-6 group-hover:text-brand-blue transition-colors">SMLとは</h4>
                   <p className="text-slate-500 mb-8">私たちのビジョンと選定基準について</p>
                   <div className="flex items-center text-brand-blue font-bold text-sm uppercase tracking-widest">

@@ -60,7 +60,7 @@ export const DOCTORS: Doctor[] = [
     specialties: ['輪郭形成', '骨切り術'],
     qualifications: ['JSAS 専門医'],
     history: [],
-    image: 'https://lh3.googleusercontent.com/d/1BGZQQ6hbD6eZoya9qcyApi7nQZrY1ktv',
+    image: '/images/doctors/yamamoto.png',
     catchphrase: '理想の輪郭を追求する、骨切りのスペシャリスト。'
   },
   {
@@ -73,7 +73,7 @@ export const DOCTORS: Doctor[] = [
     specialties: ['二重整形', 'フェイスリフト'],
     qualifications: ['JSAS 専門医', '日本形成外科学会 会員'],
     history: ['2008年 日本医科大学医学部卒業', '2018年 BIANCA 設立'],
-    image: 'https://lh3.googleusercontent.com/d/1Om4NzXHWCNi5PCnLITGUEU0G6t88wq3R',
+    image: '/images/doctors/horita.png',
     catchphrase: 'デザインと技術の融合。理想のフェイスラインを創る。'
   },
   {
@@ -86,7 +86,7 @@ export const DOCTORS: Doctor[] = [
     specialties: ['鼻整形', '目元整形'],
     qualifications: ['JSAS 専門医'],
     history: [],
-    image: 'https://lh3.googleusercontent.com/d/1CGXwp9Ut8VmvgIgMgI4NVaAq9fQSu7xK',
+    image: '/images/doctors/harima.png',
     catchphrase: '繊細な技術で、自然な美しさを引き出す。'
   },
   {
@@ -99,8 +99,21 @@ export const DOCTORS: Doctor[] = [
     specialties: ['脂肪吸引', '豊胸術'],
     qualifications: ['JSAS 専門医'],
     history: [],
-    image: 'https://lh3.googleusercontent.com/d/1O_Seu5aMbmFvopSQ4gnpRg3KMEHa7hRf',
+    image: '/images/doctors/shida.png',
     catchphrase: 'ボディデザインの極致。理想の曲線美を叶える。'
+  },
+  {
+    id: 'ohashi',
+    name: '大橋 昌敬',
+    nameEn: 'Masanori Ohashi',
+    title: 'THE CLINIC 総院長',
+    clinicId: 'theclinic',
+    category: 'Body',
+    specialties: ['脂肪吸引', 'ボディデザイン', '脂肪注入'],
+    qualifications: ['JSAS 専門医', '日本形成外科学会 会員'],
+    history: [],
+    image: '/images/doctors/ohashi.webp',
+    catchphrase: '脂肪技術の革新を追い続ける、THE CLINICの総院長。'
   }
 ];
 
