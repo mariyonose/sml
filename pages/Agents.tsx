@@ -12,7 +12,7 @@ interface AgentsProps {
 
 export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
   return (
-    <div className="bg-white animate-in fade-in duration-700">
+    <div className="bg-white animate-in fade-in duration-700 overflow-x-clip">
       <div className="flex flex-col md:flex-row min-h-screen">
         {/* Left Side - Visual & Title */}
         <aside className="w-full md:w-[40%] lg:w-[35%] 2xl:w-[30%] md:h-screen md:sticky md:top-0 overflow-hidden bg-slate-900">
@@ -44,7 +44,7 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
         </aside>
 
         {/* Right Side - Content */}
-        <main className="w-full md:w-[60%] lg:w-[65%] 2xl:w-[70%] bg-white overflow-x-hidden">
+        <main className="w-full md:w-[60%] lg:w-[65%] 2xl:w-[70%] bg-white min-w-0">
           {/* Hero Section */}
           <section className="px-8 md:px-16 lg:px-24 xl:px-28 2xl:px-32 py-24 md:py-32">
             <div className="max-w-4xl xl:max-w-5xl">

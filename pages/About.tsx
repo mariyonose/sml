@@ -37,7 +37,7 @@ const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => 
 
 export const About: React.FC<AboutProps> = ({ lang }) => {
   return (
-    <div className="bg-white animate-in fade-in duration-700">
+    <div className="bg-white animate-in fade-in duration-700 overflow-x-clip">
       <div className="flex flex-col md:flex-row min-h-screen">
         {/* Left Side - Visual & Title */}
         <aside className="w-full md:w-[40%] lg:w-[35%] md:h-screen md:sticky md:top-0 overflow-hidden bg-slate-900">
@@ -69,9 +69,9 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
         </aside>
 
         {/* Right Side - Content */}
-        <main className="w-full md:w-[60%] lg:w-[65%] bg-white overflow-x-hidden">
+        <main className="w-full md:w-[60%] lg:w-[65%] bg-white min-w-0">
           {/* Hero Section */}
-          <section className="px-8 md:px-16 lg:px-24 py-24 md:py-32">
+          <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32">
             <div className="max-w-4xl">
               <p className="text-brand-blue font-black tracking-[0.4em] uppercase text-xs mb-6">About SSF Medical Link</p>
               <h2 className="font-serif text-slate-900 mb-12 tracking-tight leading-tight" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)' }}>
@@ -90,7 +90,7 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
                     <div className="h-[1.5px] flex-grow bg-slate-900/10"></div>
                   </div>
                   
-                  <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-16 tracking-tight break-keep">
+                  <h3 className="font-bold text-slate-900 mb-16 tracking-tight break-keep" style={{ fontSize: 'clamp(1.1rem, 2.2vw, 1.75rem)' }}>
                     今、医療インバウンドで何が起こっているのか。
                   </h3>
                   
@@ -294,7 +294,7 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
 
               {/* Why SSF - 5 Reasons */}
               <div className="mb-32">
-                <h2 className="text-3xl md:text-4xl font-serif text-slate-900 mb-12 break-keep">なぜ私たちが医療インバウンドの問題を解決できるのか</h2>
+                <h2 className="font-serif text-slate-900 mb-12" style={{ fontSize: 'clamp(1.1rem, 2vw, 1.5rem)' }}>なぜ私たちが医療インバウンドの問題を解決できるのか</h2>
                 
                 <div className="bg-slate-100 p-4 rounded-sm space-y-2">
                   {[
@@ -305,11 +305,11 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
                     { id: '05', label: 'PARTNERSHIP', title: 'グローバルパートナーシップ', desc: '伊藤忠商事 × JD.com（京東健康）。中国最大級のヘルスケアプラットフォームとの連携により、圧倒的な集客力と信頼性を担保。' }
                   ].map((item) => (
                     <div key={item.id} className="flex flex-col md:flex-row bg-white">
-                      <div className="w-full md:w-[35%] p-8 md:p-10 flex flex-col justify-center border-b md:border-b-0 md:border-r border-slate-100">
+                      <div className="w-full md:w-[40%] p-6 md:p-8 flex flex-col justify-center border-b md:border-b-0 md:border-r border-slate-100">
                         <p className="text-brand-blue font-black tracking-[0.2em] uppercase text-[10px] mb-3">{item.label}</p>
-                        <h4 className="text-xl font-bold text-slate-900 tracking-tight leading-tight">{item.title}</h4>
+                        <h4 className="text-sm md:text-base font-bold text-slate-900 tracking-tight leading-tight break-keep">{item.title}</h4>
                       </div>
-                      <div className="w-full md:w-[65%] p-8 md:p-10 flex items-center">
+                      <div className="w-full md:w-[60%] p-6 md:p-8 flex items-center">
                         <div className="flex gap-4 items-start">
                           <div className="w-1.5 h-1.5 rounded-full bg-brand-blue/30 mt-2 shrink-0"></div>
                           <p className="text-slate-500 text-sm leading-relaxed font-light">{item.desc}</p>
@@ -362,7 +362,7 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
                   医師の選定と「MASTER CLASS」
                 </h2>
 
-                <div className="relative bg-white rounded-sm p-10 md:p-16 border border-slate-200 mb-12 overflow-hidden group">
+                <div className="relative bg-white rounded-sm p-10 md:p-16 border border-slate-200 mb-12 overflow-clip group">
                   {/* Rising Sun Background Element */}
                   <div className="absolute -top-48 -right-48 w-[700px] h-[700px] bg-[#e60012]/10 rounded-full z-0 pointer-events-none"></div>
 

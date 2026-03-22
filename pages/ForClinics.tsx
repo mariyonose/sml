@@ -11,7 +11,7 @@ interface ForClinicsProps {
 
 export const ForClinics: React.FC<ForClinicsProps> = ({ lang }) => {
   return (
-    <div className="bg-white animate-in fade-in duration-700">
+    <div className="bg-white animate-in fade-in duration-700 overflow-x-clip">
       <div className="flex flex-col md:flex-row min-h-screen">
         {/* Left Side - Visual & Title */}
         <aside className="w-full md:w-[40%] lg:w-[35%] md:h-screen md:sticky md:top-0 overflow-hidden bg-slate-900">
@@ -43,7 +43,7 @@ export const ForClinics: React.FC<ForClinicsProps> = ({ lang }) => {
         </aside>
 
         {/* Right Side - Content */}
-        <main className="w-full md:w-[60%] lg:w-[65%] bg-white overflow-x-hidden">
+        <main className="w-full md:w-[60%] lg:w-[65%] bg-white min-w-0">
           {/* Hero Section */}
           <section className="px-8 md:px-16 lg:px-24 py-24 md:py-32">
             <div className="max-w-4xl">
@@ -193,7 +193,7 @@ export const ForClinics: React.FC<ForClinicsProps> = ({ lang }) => {
               </div>
 
               {/* Doctor Guide Integration */}
-              <div className="relative bg-white rounded-sm p-10 md:p-16 border border-slate-200 mb-12 overflow-hidden group">
+              <div className="relative bg-white rounded-sm p-10 md:p-16 border border-slate-200 mb-12 overflow-clip group">
                 {/* Rising Sun Background Element - Significant presence with vermilion */}
                 <div className="absolute -top-48 -right-48 w-[700px] h-[700px] bg-[#e60012]/15 rounded-full z-0 pointer-events-none"></div>
 
