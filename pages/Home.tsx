@@ -57,13 +57,13 @@ export const Home: React.FC<HomeProps> = ({ lang }) => {
     shida:    { height: '100%', top: '0', width: 'auto', maxWidth: 'min(58%, 860px)', right: 'max(0px, calc((100vw - 1536px) / 2))', objectFit: 'contain', objectPosition: 'bottom center', transformOrigin: 'bottom right' },
     ohashi:   { height: '100%', top: '0', width: 'auto', maxWidth: 'min(58%, 860px)', right: 'max(0px, calc((100vw - 1536px) / 2))', objectFit: 'contain', objectPosition: 'bottom center', transformOrigin: 'bottom right' },
   };
-  // スマホ用スタイル（md未満）：上半分エリア内で右寄せ全高表示
+  // スマホ用スタイル（md未満）：右側に全高表示（absolute配置・bottom基準）
   const doctorImgStylesSP: Record<string, React.CSSProperties> = {
-    yamamoto: { height: '100%', width: 'auto', maxWidth: '80%', objectFit: 'contain', objectPosition: 'bottom right' },
-    horita:   { height: '100%', width: 'auto', maxWidth: '80%', objectFit: 'contain', objectPosition: 'bottom right' },
-    harima:   { height: '100%', width: 'auto', maxWidth: '80%', objectFit: 'contain', objectPosition: 'bottom right' },
-    shida:    { height: '100%', width: 'auto', maxWidth: '80%', objectFit: 'contain', objectPosition: 'bottom right' },
-    ohashi:   { height: '100%', width: 'auto', maxWidth: '80%', objectFit: 'contain', objectPosition: 'bottom right' },
+    yamamoto: { position: 'absolute', height: '78%', width: 'auto', maxWidth: '75%', bottom: '0', right: '0', objectFit: 'contain', objectPosition: 'bottom right' },
+    horita:   { position: 'absolute', height: '78%', width: 'auto', maxWidth: '75%', bottom: '0', right: '0', objectFit: 'contain', objectPosition: 'bottom right' },
+    harima:   { position: 'absolute', height: '78%', width: 'auto', maxWidth: '75%', bottom: '0', right: '0', objectFit: 'contain', objectPosition: 'bottom right' },
+    shida:    { position: 'absolute', height: '78%', width: 'auto', maxWidth: '75%', bottom: '0', right: '0', objectFit: 'contain', objectPosition: 'bottom right' },
+    ohashi:   { position: 'absolute', height: '78%', width: 'auto', maxWidth: '75%', bottom: '0', right: '0', objectFit: 'contain', objectPosition: 'bottom right' },
   };
 
   return (
@@ -170,32 +170,46 @@ export const Home: React.FC<HomeProps> = ({ lang }) => {
             ))}
           </div>
           
-          {/* ===== スマホ用ヒーローレイアウト（md未満）: 上下2分割 ===== */}
-          <div className="md:hidden absolute inset-0 z-10 flex flex-col">
+          {/* ===== スマホ用ヒーローレイアウト（md未満）: 全画面absolute重ね ===== */}
+          <div className="md:hidden absolute inset-0 z-10">
 
-            {/* 上半分：医師画像エリア（画面高さの52%） */}
-            <div className="relative flex-none overflow-hidden" style={{ height: '52%' }}>
-              {!slides[currentSlide].isBrand && (
-                <div className="absolute inset-0 flex items-end justify-end">
-                  <img
-                    src={slides[currentSlide].image}
-                    alt={slides[currentSlide].name}
-                    className="grayscale-[10%]"
-                    style={doctorImgStylesSP[slides[currentSlide].id] || {
-                      height: '100%', width: 'auto', maxWidth: '80%',
-                      objectFit: 'contain', objectPosition: 'bottom right'
-                    }}
-                  />
+            {/* 医師画像：右側に全高表示（absolute） */}
+            {!slides[currentSlide].isBrand && (
+              <img
+                src={slides[currentSlide].image}
+                alt={slides[currentSlide].name}
+                className="grayscale-[10%] animate-ken-burns"
+                style={doctorImgStylesSP[slides[currentSlide].id] || {
+                  position: 'absolute', height: '78%', width: 'auto', maxWidth: '75%',
+                  bottom: '0', right: '0', objectFit: 'contain', objectPosition: 'bottom right'
+                }}
+              />
+            )}
+
+            {/* 医師名カード：左上に配置 */}
+            {!slides[currentSlide].isBrand && (
+              <motion.div
+                key={`sp-card-${currentSlide}`}
+                initial={{ opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="absolute top-[12%] left-5 z-20"
+              >
+                <div className="bg-white/90 backdrop-blur-sm px-4 py-3 shadow-md">
+                  <p className="text-[8px] font-black uppercase tracking-[0.25em] text-brand-blue mb-1">Verified Master Class Doctor</p>
+                  <p className="text-sm font-serif text-slate-900 leading-tight">{slides[currentSlide].name}</p>
+                  <p className="text-[8px] font-bold uppercase tracking-[0.2em] text-slate-400 mt-0.5">{slides[currentSlide].title}</p>
                 </div>
-              )}
-              {/* 下フェード */}
-              <div className={`absolute bottom-0 left-0 right-0 h-24 ${slides[currentSlide].isBrand ? 'bg-gradient-to-t from-[#001122] to-transparent' : 'bg-gradient-to-t from-white to-transparent'}`} />
-            </div>
+              </motion.div>
+            )}
 
-            {/* 下半分：テキスト・ボタンエリア（画面高さの48%） */}
+            {/* テキスト・ボタンエリア：下部に絶対配置 */}
             <div
-              className="flex-1 flex flex-col justify-center px-5 pb-6 pt-2"
-              style={{ background: slides[currentSlide].isBrand ? '#001122' : 'white' }}
+              className="absolute bottom-0 left-0 right-0 px-5 pb-8 pt-6 z-20"
+              style={{ background: slides[currentSlide].isBrand
+                ? 'linear-gradient(to top, #001122 60%, transparent)'
+                : 'linear-gradient(to top, white 55%, rgba(255,255,255,0.85) 75%, transparent)'
+              }}
             >
               {/* ラベル */}
               <motion.div key="sp-label" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-2">
@@ -238,23 +252,6 @@ export const Home: React.FC<HomeProps> = ({ lang }) => {
                 </Link>
               </div>
 
-              {/* 医師情報 */}
-              {!slides[currentSlide].isBrand && (
-                <motion.div
-                  key={`profile-sp-${currentSlide}`}
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                  className="flex items-center gap-2 border-t border-slate-100 pt-3"
-                >
-                  <div className="h-5 w-[2px] bg-brand-blue flex-shrink-0" />
-                  <div>
-                    <p className="text-[8px] font-black uppercase tracking-[0.3em] text-brand-blue mb-0.5">Verified Master Class Doctor</p>
-                    <p className="text-xs font-serif leading-tight text-slate-900">{slides[currentSlide].name}</p>
-                    <p className="text-[8px] font-bold uppercase tracking-[0.2em] text-slate-400 mt-0.5">{slides[currentSlide].title}</p>
-                  </div>
-                </motion.div>
-              )}
             </div>
           </div>
 
