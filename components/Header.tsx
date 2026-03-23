@@ -45,7 +45,7 @@ export const Header: React.FC<HeaderProps> = ({ lang, setLang }) => {
     <>
       <header className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 h-16 md:h-20">
         <div className="max-w-screen-2xl mx-auto px-4 md:px-6 h-full flex items-center justify-between relative">
-          <Link to="/" className="shrink-0 mr-4 md:mr-12 group">
+          <Link to="/" className="shrink-0 mr-2 md:mr-12 group">
             <img 
               src="https://lh3.googleusercontent.com/d/19mi6RRwCtWuL54J9rIPHujsm-IZmXkeW" 
               alt="SSF MEDICAL LINK" 
@@ -120,12 +120,13 @@ export const Header: React.FC<HeaderProps> = ({ lang, setLang }) => {
           </div>
 
           {/* モバイル右側：お問合せ + ハンバーガーボタン */}
-          <div className="xl:hidden flex items-center gap-2">
+          <div className="xl:hidden flex items-center gap-1.5">
             <Link 
               to="/contact"
-              className="px-3 py-1.5 bg-brand-blue text-white text-[10px] font-black uppercase tracking-[0.15em] rounded-full"
+              className="flex items-center gap-1 px-2.5 py-1.5 bg-brand-blue text-white text-[10px] font-black uppercase tracking-[0.1em] rounded-full whitespace-nowrap"
             >
-              {t('nav_contact')}
+              <CalendarDays className="w-3 h-3 shrink-0" />
+              <span>{t('nav_contact')}</span>
             </Link>
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -174,6 +175,17 @@ export const Header: React.FC<HeaderProps> = ({ lang, setLang }) => {
 
         {/* ナビゲーションリンク */}
         <nav className="px-4 py-6 space-y-1">
+          {/* トップページリンク */}
+          <Link
+            to="/"
+            className={`flex items-center px-4 py-3.5 rounded-xl text-sm font-bold uppercase tracking-wider transition-all ${
+              pathname === '/'
+                ? 'bg-brand-blue/10 text-brand-blue'
+                : 'text-slate-700 hover:bg-slate-50 hover:text-brand-blue'
+            }`}
+          >
+            TOP
+          </Link>
           {navItems.map((item) => (
             <Link
               key={item.id}

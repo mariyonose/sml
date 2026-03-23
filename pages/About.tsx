@@ -11,7 +11,7 @@ interface AboutProps {
 
 const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "0px" });
   const motionValue = useMotionValue(0);
 
   useEffect(() => {
@@ -138,20 +138,80 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
               </div>
 
               {/* Mission Diagram */}
-              <div className="mb-12 md:mb-24 overflow-x-auto">
+              {/* スマホ用：▲構造（SSF上・提携クリニック・海外エージェント下） */}
+              <div className="md:hidden mb-12 relative">
+                {/* SSF 上部中央 */}
+                <div className="flex justify-center mb-0">
+                  <div className="bg-white border-2 border-[#b4975a] p-4 text-center flex flex-col items-center shadow-lg relative z-10 w-[65%]">
+                    <div className="w-14 h-14 bg-[#0f172a] rounded-full flex items-center justify-center mb-3">
+                      <img 
+                        src="https://lh3.googleusercontent.com/d/19mi6RRwCtWuL54J9rIPHujsm-IZmXkeW" 
+                        alt="SML" 
+                        className="w-8 h-auto brightness-0 invert"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                    <h4 className="font-bold text-[#0f172a] mb-2 text-xs">SSF Medical Link</h4>
+                    <div className="space-y-0.5 text-[10px] text-[#b4975a] font-bold">
+                      <p className="opacity-70">第三者認証機関</p>
+                      <p>品質管理・適正価格</p>
+                      <p>ロジスティクス</p>
+                    </div>
+                  </div>
+                </div>
+                {/* 線：SSFから下の2ボックスへ */}
+                <div className="flex justify-center">
+                  <div className="relative w-[65%]">
+                    {/* 左下への斜め線 */}
+                    <div className="absolute top-0 left-1/2 w-px h-8 bg-[#b4975a]"></div>
+                    <div className="absolute top-8 left-[15%] right-[15%] h-px bg-[#b4975a]"></div>
+                    <div className="absolute top-8 left-[15%] w-px h-4 bg-[#b4975a]"></div>
+                    <div className="absolute top-8 right-[15%] w-px h-4 bg-[#b4975a]"></div>
+                    <div className="h-12"></div>
+                  </div>
+                </div>
+                {/* 下部：2ボックス並び */}
+                <div className="flex gap-3 justify-center">
+                  <div className="w-[45%] bg-white border border-slate-200 p-3 text-center flex flex-col items-center">
+                    <div className="w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center mb-2">
+                      <ShieldCheck className="w-5 h-5 text-slate-900" />
+                    </div>
+                    <h4 className="font-bold text-slate-900 mb-1 text-xs">提携クリニック</h4>
+                    <div className="space-y-0.5 text-[9px] text-slate-500">
+                      <p>日本のトップクラス医師</p>
+                      <p>(MASTER CLASS)</p>
+                      <p>高度な医療技術</p>
+                    </div>
+                  </div>
+                  <div className="w-[45%] bg-white border border-slate-200 p-3 text-center flex flex-col items-center">
+                    <div className="w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center mb-2">
+                      <Globe className="w-5 h-5 text-slate-900" />
+                    </div>
+                    <h4 className="font-bold text-slate-900 mb-1 text-xs">海外エージェント<br />& 患者様</h4>
+                    <div className="space-y-0.5 text-[9px] text-slate-500">
+                      <p>日本医療へのアクセス</p>
+                      <p>安心・安全な治療</p>
+                      <p>適正な価格</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* PC用：横並び */}
+              <div className="hidden md:block mb-24 overflow-x-auto">
                 <div className="min-w-[600px] lg:min-w-0">
                   {/* Connection Diagram */}
-                  <div className="relative flex items-stretch justify-between gap-3 mb-8 md:mb-12">
+                  <div className="relative flex items-stretch justify-between gap-3 mb-12">
                     {/* Horizontal Line Background */}
                     <div className="absolute top-1/2 left-0 w-full h-px bg-slate-200 -z-10"></div>
 
                     {/* Left: Clinics */}
-                    <div className="w-[30%] bg-white border border-slate-200 p-4 md:p-6 text-center flex flex-col items-center">
-                      <div className="w-12 h-12 md:w-16 md:h-16 bg-slate-50 rounded-full flex items-center justify-center mb-4 md:mb-6">
-                        <ShieldCheck className="w-6 h-6 md:w-8 md:h-8 text-slate-900" />
+                    <div className="w-[30%] bg-white border border-slate-200 p-6 text-center flex flex-col items-center">
+                      <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mb-6">
+                        <ShieldCheck className="w-8 h-8 text-slate-900" />
                       </div>
-                      <h4 className="font-bold text-slate-900 mb-2 md:mb-4 text-sm md:text-base">提携クリニック</h4>
-                      <div className="space-y-1 text-[10px] md:text-[11px] text-slate-500">
+                      <h4 className="font-bold text-slate-900 mb-4 text-base">提携クリニック</h4>
+                      <div className="space-y-1 text-[11px] text-slate-500">
                         <p>日本のトップクラス医師</p>
                         <p>(MASTER CLASS)</p>
                         <p>高度な医療技術</p>
@@ -159,33 +219,33 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
                     </div>
 
                     {/* Center: SML */}
-                    <div className="w-[36%] bg-white border-2 border-[#b4975a] p-4 md:p-6 text-center flex flex-col items-center shadow-lg relative z-10">
-                      <div className="w-14 h-14 md:w-20 md:h-20 bg-[#0f172a] rounded-full flex items-center justify-center mb-4 md:mb-6">
+                    <div className="w-[36%] bg-white border-2 border-[#b4975a] p-6 text-center flex flex-col items-center shadow-lg relative z-10">
+                      <div className="w-20 h-20 bg-[#0f172a] rounded-full flex items-center justify-center mb-6">
                         <img 
                           src="https://lh3.googleusercontent.com/d/19mi6RRwCtWuL54J9rIPHujsm-IZmXkeW" 
                           alt="SML" 
-                          className="w-8 md:w-12 h-auto brightness-0 invert"
+                          className="w-12 h-auto brightness-0 invert"
                           referrerPolicy="no-referrer"
                         />
                       </div>
-                      <h4 className="font-bold text-[#0f172a] mb-2 md:mb-4 text-xs md:text-base">SSF Medical Link</h4>
-                      <div className="space-y-1 text-[10px] md:text-[11px] text-[#b4975a] font-bold">
+                      <h4 className="font-bold text-[#0f172a] mb-4 text-base">SSF Medical Link</h4>
+                      <div className="space-y-1 text-[11px] text-[#b4975a] font-bold">
                         <p className="opacity-70">第三者認証機関</p>
                         <p>品質管理・適正価格</p>
                         <p>ロジスティクス</p>
                       </div>
                       {/* Connection Lines to Left/Right */}
-                      <div className="absolute top-1/2 -left-3 md:-left-4 w-3 md:w-4 h-[2px] bg-[#b4975a]"></div>
-                      <div className="absolute top-1/2 -right-3 md:-right-4 w-3 md:w-4 h-[2px] bg-[#b4975a]"></div>
+                      <div className="absolute top-1/2 -left-4 w-4 h-[2px] bg-[#b4975a]"></div>
+                      <div className="absolute top-1/2 -right-4 w-4 h-[2px] bg-[#b4975a]"></div>
                     </div>
 
                     {/* Right: Agents */}
-                    <div className="w-[30%] bg-white border border-slate-200 p-4 md:p-6 text-center flex flex-col items-center">
-                      <div className="w-12 h-12 md:w-16 md:h-16 bg-slate-50 rounded-full flex items-center justify-center mb-4 md:mb-6">
-                        <Globe className="w-6 h-6 md:w-8 md:h-8 text-slate-900" />
+                    <div className="w-[30%] bg-white border border-slate-200 p-6 text-center flex flex-col items-center">
+                      <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mb-6">
+                        <Globe className="w-8 h-8 text-slate-900" />
                       </div>
-                      <h4 className="font-bold text-slate-900 mb-2 md:mb-4 text-sm md:text-base">海外エージェント<br />& 患者様</h4>
-                      <div className="space-y-1 text-[10px] md:text-[11px] text-slate-500">
+                      <h4 className="font-bold text-slate-900 mb-4 text-base">海外エージェント<br />& 患者様</h4>
+                      <div className="space-y-1 text-[11px] text-slate-500">
                         <p>日本医療へのアクセス</p>
                         <p>安心・安全な治療</p>
                         <p>適正な価格</p>

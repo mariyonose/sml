@@ -86,12 +86,12 @@ export const ForClinics: React.FC<ForClinicsProps> = ({ lang }) => {
                     <a 
                       key={i} 
                       href={`#${item.id}`}
-                      className="flex items-center gap-5 md:gap-8 p-5 md:p-8 bg-slate-50 rounded-sm border border-slate-100 hover:bg-slate-900 transition-all duration-500 group cursor-pointer"
+                      className="flex items-center gap-5 md:gap-8 p-5 md:p-8 bg-slate-50 rounded-sm border border-slate-100 hover:bg-slate-900 active:bg-slate-900 transition-all duration-500 group cursor-pointer"
                     >
-                      <span className="text-3xl md:text-4xl font-serif text-slate-200 group-hover:text-brand-blue transition-colors shrink-0">0{i+1}</span>
+                      <span className="text-3xl md:text-4xl font-serif text-slate-200 group-hover:text-brand-blue group-active:text-brand-blue transition-colors shrink-0">0{i+1}</span>
                       <div>
-                        <h4 className="text-base md:text-xl font-bold text-slate-900 group-hover:text-white tracking-tight transition-colors">{item.title}</h4>
-                        <p className="text-[10px] md:text-xs font-serif italic text-slate-400 group-hover:text-slate-500 tracking-widest uppercase transition-colors">{item.subtitle}</p>
+                        <h4 className="text-base md:text-xl font-bold text-slate-900 group-hover:text-white group-active:text-white tracking-tight transition-colors">{item.title}</h4>
+                        <p className="text-[10px] md:text-xs font-serif italic text-slate-400 group-hover:text-slate-500 group-active:text-slate-500 tracking-widest uppercase transition-colors">{item.subtitle}</p>
                       </div>
                     </a>
                   ))}

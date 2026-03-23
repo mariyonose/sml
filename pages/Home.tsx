@@ -79,10 +79,10 @@ export const Home: React.FC<HomeProps> = ({ lang }) => {
             <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/20 to-transparent"></div>
           </div>
           
-          {/* ===== スマホ用ヒーローレイアウト（md未満）: 下部にコピー＋ボタン ===== */}
-          <div className="md:hidden absolute inset-0 z-10 flex flex-col justify-end">
-            {/* 下部：キャッチコピー・サブタイトル・ボタン */}
-            <div className="px-5 w-full pb-10">
+          {/* ===== スマホ用ヒーローレイアウト（md未満）: 中央配置 ===== */}
+          <div className="md:hidden absolute inset-0 z-10 flex flex-col justify-center">
+            {/* 中央：キャッチコピー・サブタイトル・ボタン */}
+            <div className="px-5 w-full">
               {/* ラベル */}
               <motion.div key="sp-label" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-2">
                 <span className="inline-block font-black tracking-[0.3em] uppercase text-[10px] text-cyan-400">
