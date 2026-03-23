@@ -16,7 +16,7 @@ export const ForAgents: React.FC<AgentsProps> = ({ lang }) => {
       <div className="flex flex-col md:flex-row min-h-screen">
         {/* Left Side - Visual & Title */}
         <aside className="w-full md:w-[40%] lg:w-[35%] 2xl:w-[30%] md:h-screen md:sticky md:top-0 overflow-hidden bg-slate-900">
-          <div className="relative h-[45vw] min-h-[240px] max-h-[400px] md:h-full w-full">
+          <div className="relative h-[45vw] min-h-[240px] max-h-[400px] md:h-full md:max-h-none w-full">
             <img 
               src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1200" 
               alt="Business Partnership" 
